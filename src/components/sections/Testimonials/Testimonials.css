@@ -1,0 +1,2 @@
+.sf-testimonials { padding: var(--space-8) 0; }
+.sf-testimonials__grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }

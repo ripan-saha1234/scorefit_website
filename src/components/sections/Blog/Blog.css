@@ -1,0 +1,3 @@
+.sf-blog { padding: var(--space-8) 0; }
+.sf-blog__grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.sf-blog__meta { margin: 0 0 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }

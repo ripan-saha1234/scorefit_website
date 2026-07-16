@@ -1,0 +1,71 @@
+.sf-trainers {
+  padding: var(--space-9) 0;
+}
+
+.sf-trainers__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.sf-trainers__card {
+  display: grid;
+  gap: 0.5rem;
+  padding: var(--space-6);
+  text-align: center;
+  justify-items: center;
+}
+
+/* Avatar with gradient border */
+.sf-trainers__avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-accent-ink);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  box-shadow: 0 4px 16px var(--color-accent-glow);
+  margin-bottom: 0.5rem;
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+
+.sf-trainers__card:hover .sf-trainers__avatar {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.sf-trainers h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+}
+
+.sf-trainers__role {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.sf-trainers__specialty {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.sf-trainers__experience {
+  margin-top: 0.5rem;
+}
+
+.sf-trainers__experience span {
+  display: inline-flex;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

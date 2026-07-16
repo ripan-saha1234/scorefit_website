@@ -1,0 +1,75 @@
+.sf-cta {
+  position: relative;
+  padding: var(--space-8) 0 var(--space-9);
+  overflow: hidden;
+}
+
+/* Background animated glow */
+.sf-cta__bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1000px;
+  height: 60%;
+  background: radial-gradient(ellipse at center, rgba(200, 245, 66, 0.15), transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Decorative particles */
+.sf-cta__particles {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-accent-subtle) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+.sf-cta__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.sf-cta__content {
+  text-align: center;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  padding: clamp(3rem, 8vw, 5rem);
+  border-radius: var(--radius-xl);
+  background: var(--color-glass-bg);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* Shimmer overlay for card */
+.sf-cta__content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.sf-cta h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  max-width: 16ch;
+}
+
+.sf-cta p {
+  font-size: 1.1rem;
+  max-width: 32rem;
+}
+
+.sf-cta__actions {
+  margin-top: 1rem;
+}

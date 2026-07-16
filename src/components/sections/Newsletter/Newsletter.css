@@ -1,0 +1,4 @@
+.sf-newsletter { padding: var(--space-8) 0; }
+.sf-newsletter__inner { display: grid; gap: var(--space-5); align-items: end; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--color-surface); }
+.sf-newsletter__form { display: grid; gap: 0.75rem; }
+@media (min-width: 768px) { .sf-newsletter__inner { grid-template-columns: 1.2fr 1fr; } }

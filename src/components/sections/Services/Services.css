@@ -1,0 +1,50 @@
+.sf-services {
+  padding: var(--space-9) 0;
+  position: relative;
+}
+
+.sf-services__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.sf-services__card {
+  display: grid;
+  gap: 0.75rem;
+  padding: var(--space-6);
+  position: relative;
+}
+
+.sf-services__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.sf-services__number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--color-accent-subtle);
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-5);
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.sf-services__card:hover .sf-services__number {
+  opacity: 0.6;
+  color: var(--color-accent);
+}
+
+.sf-services h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+}
+
+.sf-services p {
+  margin: 0;
+  font-size: 0.92rem;
+}

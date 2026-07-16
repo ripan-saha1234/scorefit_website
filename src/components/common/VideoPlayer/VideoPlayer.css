@@ -1,0 +1,2 @@
+.sf-video { width: 100%; overflow: hidden; border-radius: var(--radius-md); background: #000; }
+.sf-video__player { width: 100%; aspect-ratio: 16 / 9; }

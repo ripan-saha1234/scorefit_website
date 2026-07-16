@@ -1,0 +1,50 @@
+.sf-section-title {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+}
+
+.sf-section-title--center {
+  text-align: center;
+  justify-items: center;
+}
+
+.sf-section-title__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sf-section-title h2 {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+/* Accent underline that grows in */
+.sf-section-title h2::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+  animation: accent-line-grow 0.6s ease both;
+}
+
+.sf-section-title--center h2::after {
+  margin-inline: auto;
+}
+
+.sf-section-title__description {
+  margin: 0;
+  font-size: 1.05rem;
+  max-width: 36rem;
+}

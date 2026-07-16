@@ -1,0 +1,11 @@
+.sf-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+  box-shadow: 0 0 12px var(--color-accent-glow), 0 0 4px var(--color-accent);
+  pointer-events: none;
+  transition: width 100ms linear;
+}

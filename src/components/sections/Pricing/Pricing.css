@@ -1,0 +1,133 @@
+.sf-pricing {
+  padding: var(--space-9) 0;
+  position: relative;
+}
+
+/* ── Toggle switch ───────────────────────────────── */
+
+.sf-pricing__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-7);
+}
+
+.sf-pricing__toggle-track {
+  position: relative;
+  display: flex;
+  border-radius: var(--radius-full);
+  background: var(--color-glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem;
+  overflow: hidden;
+}
+
+.sf-pricing__toggle-track button {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-full);
+  padding: 0.55rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+
+.sf-pricing__toggle-track button.is-active {
+  color: var(--color-accent-ink);
+}
+
+.sf-pricing__toggle-indicator {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  height: calc(100% - 0.5rem);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  transition: transform var(--transition-base);
+  pointer-events: none;
+}
+
+.sf-pricing__save-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full);
+  animation: count-up-bounce 0.4s ease both;
+}
+
+/* ── Grid ────────────────────────────────────────── */
+
+.sf-pricing__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  align-items: start;
+}
+
+.sf-pricing__card {
+  display: grid;
+  gap: 0.5rem;
+  padding: var(--space-6);
+}
+
+/* Highlighted card — accent glow + slight scale */
+.sf-pricing__card.is-highlighted {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 24px var(--color-accent-glow);
+  transform: scale(1.02);
+}
+
+.sf-pricing__card.is-highlighted:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+.sf-pricing h3 {
+  margin: 0;
+}
+
+.sf-pricing__price {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.25rem);
+  margin: 0.25rem 0;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.sf-pricing__price span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* Feature list with checkmarks */
+.sf-pricing ul {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.sf-pricing li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.sf-pricing li svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}

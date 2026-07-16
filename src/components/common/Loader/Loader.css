@@ -1,0 +1,13 @@
+.sf-loader {
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+}
+
+.sf-loader__spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+}

@@ -1,0 +1,6 @@
+.sf-contact { padding: var(--space-8) 0; }
+.sf-contact__form { display: grid; gap: 1rem; max-width: 36rem; }
+.sf-contact__textarea { display: grid; gap: 0.4rem; }
+.sf-contact__textarea textarea { width: 100%; padding: 0.8rem 0.95rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); resize: vertical; }
+.sf-contact__error { color: #b42318; font-size: 0.8rem; }
+.sf-contact__status { color: var(--color-text); font-weight: 600; }

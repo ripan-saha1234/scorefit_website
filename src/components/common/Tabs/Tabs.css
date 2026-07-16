@@ -1,0 +1,5 @@
+.sf-tabs { display: grid; gap: 1rem; }
+.sf-tabs__list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.sf-tabs__tab { border: 1px solid var(--color-border); background: transparent; color: var(--color-text-muted); border-radius: var(--radius-sm); padding: 0.55rem 0.9rem; font-weight: 600; }
+.sf-tabs__tab.is-active { background: var(--color-accent); color: var(--color-accent-ink); border-color: transparent; }
+.sf-tabs__panel { color: var(--color-text-muted); }
