@@ -9,6 +9,9 @@
   /* Tall scroll track: extra 100vh drives the scrubbed exit sequence */
   height: 200vh;
   background: var(--color-bg);
+  /* Above the ScoreJourney section (z-index 2) so the phone can travel
+     across the section boundary during the scroll handoff */
+  z-index: 3;
   --mx: 0;
   --my: 0;
 }
@@ -19,7 +22,10 @@
   height: 100vh;
   display: grid;
   align-items: center;
-  overflow: hidden;
+  /* Keep visible: the phone rides outside this box during the handoff.
+     Horizontal spill is contained by body { overflow-x: hidden } and the
+     inner layers below clip themselves. */
+  overflow: visible;
 }
 
 /* ── Aurora glow blobs ───────────────────────────── */
@@ -30,6 +36,7 @@
   z-index: 0;
   pointer-events: none;
   filter: blur(80px);
+  overflow: hidden;
 }
 
 .sf-hero__aurora-blob {
@@ -318,33 +325,163 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Mouse parallax via `translate` so GSAP scroll effects (transform) compose */
-  translate: calc(var(--mx) * -14px) calc(var(--my) * -14px);
-  transition: translate 0.2s ease-out;
+  /* No parallax/float on the phone itself: its position must be exactly
+     predictable so the scroll flight lands pixel-perfect on the
+     ScoreJourney stage */
+}
+
+/* Phone mockup — same frame language as the ScoreJourney stage,
+   so the scroll handoff between sections reads as one device */
+.sf-hero__phone {
+  position: relative;
+  width: min(280px, 60vw);
   will-change: transform;
 }
 
-.sf-hero__ring-wrap {
-  position: relative;
-  width: min(380px, 70vw);
-  aspect-ratio: 1;
-  animation: sf-hero-ring-float 7s ease-in-out infinite;
+.sf-hero__phone-glow {
+  position: absolute;
+  inset: -18%;
+  background: radial-gradient(
+    ellipse 60% 55% at 50% 50%,
+    rgba(115, 199, 9, 0.22),
+    transparent 70%
+  );
+  filter: blur(28px);
+  pointer-events: none;
 }
 
-@keyframes sf-hero-ring-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
+.sf-hero__phone-frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 9 / 19;
+  border-radius: 2.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0d0f0d;
+  padding: 0.55rem;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(115, 199, 9, 0.12);
+}
+
+.sf-hero__phone-notch {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 34%;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: #000;
+}
+
+.sf-hero__phone-screen {
+  position: relative;
+  height: 100%;
+  border-radius: 2.1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 32%, rgba(115, 199, 9, 0.12), transparent 70%),
+    #101410;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.1rem 1.4rem;
+  gap: 0.9rem;
+}
+
+.sf-hero__phone-topbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sf-hero__phone-app {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.sf-hero__phone-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(115, 199, 9, 0.12);
+  border: 1px solid rgba(115, 199, 9, 0.3);
+  color: #dff5c2;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sf-hero__phone-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+  animation: pulse-soft 2s infinite;
+}
+
+.sf-hero__phone-score-wrap {
+  position: relative;
+  width: 82%;
+  aspect-ratio: 1;
+  margin-top: 0.4rem;
 }
 
 .sf-hero__ring {
   width: 100%;
   height: 100%;
   transform: rotate(-90deg);
+}
+
+/* Mini bar chart */
+.sf-hero__phone-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  height: 3.2rem;
+  margin-top: auto;
+}
+
+.sf-hero__phone-bars span {
+  width: 0.55rem;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, var(--color-accent), rgba(115, 199, 9, 0.25));
+  animation: sf-hero-bar-bounce 2.6s ease-in-out infinite;
+}
+
+.sf-hero__phone-bars span:nth-child(1) { height: 38%; animation-delay: 0s; }
+.sf-hero__phone-bars span:nth-child(2) { height: 58%; animation-delay: 0.2s; }
+.sf-hero__phone-bars span:nth-child(3) { height: 44%; animation-delay: 0.4s; }
+.sf-hero__phone-bars span:nth-child(4) { height: 80%; animation-delay: 0.6s; }
+.sf-hero__phone-bars span:nth-child(5) { height: 62%; animation-delay: 0.8s; }
+.sf-hero__phone-bars span:nth-child(6) { height: 92%; animation-delay: 1s; }
+.sf-hero__phone-bars span:nth-child(7) { height: 70%; animation-delay: 1.2s; }
+
+@keyframes sf-hero-bar-bounce {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.78);
+  }
+}
+
+.sf-hero__phone-caption {
+  margin: 0;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .sf-hero__ring-track {
@@ -363,34 +500,6 @@
   filter: drop-shadow(0 0 12px rgba(115, 199, 9, 0.5));
 }
 
-/* Orbiting dot around the ring */
-.sf-hero__ring-orbit {
-  position: absolute;
-  inset: 0;
-  animation: sf-hero-orbit 9s linear infinite;
-}
-
-.sf-hero__ring-orbit-dot {
-  position: absolute;
-  top: 6.5%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 16px var(--color-accent);
-}
-
-@keyframes sf-hero-orbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .sf-hero__ring-center {
   position: absolute;
   inset: 0;
@@ -398,19 +507,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 .sf-hero__ring-score {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
   line-height: 1;
   color: #ffffff;
   text-shadow: 0 0 40px rgba(115, 199, 9, 0.35);
 }
 
 .sf-hero__ring-label {
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -553,8 +662,8 @@
     margin-top: clamp(1rem, 4vh, 2rem);
   }
 
-  .sf-hero__ring-wrap {
-    width: min(300px, 62vw);
+  .sf-hero__phone {
+    width: min(220px, 52vw);
   }
 
   .sf-hero__chip--one {

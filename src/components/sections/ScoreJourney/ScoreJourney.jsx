@@ -74,38 +74,41 @@ const ScoreJourney = () => {
               </h2>
             </div>
 
-            {/* CENTER */}
+            {/* CENTER — phone frame, continues the hero phone */}
             <div className="sf-score-journey__col sf-score-journey__col--center">
               <div className="sf-score-journey__stage">
-                {SCORE_JOURNEY_STEPS.map((item, index) => (
-                  <div
-                    key={item.id}
-                    className={`sf-score-journey__media${index === activeStep ? ' is-active' : ''}`}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.imageAlt}
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      decoding="async"
-                    />
-                    <div className="sf-score-journey__media-veil" />
+                <span className="sf-score-journey__notch" aria-hidden="true" />
+                <div className="sf-score-journey__screen">
+                  {SCORE_JOURNEY_STEPS.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className={`sf-score-journey__media${index === activeStep ? ' is-active' : ''}`}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        decoding="async"
+                      />
+                      <div className="sf-score-journey__media-veil" />
+                    </div>
+                  ))}
+
+                  <div className="sf-score-journey__score-stack">
+                    <span
+                      key={`score-${step.id}`}
+                      className="sf-score-journey__score"
+                      style={{ '--step-accent': step.accent }}
+                    >
+                      {step.score}
+                    </span>
+                    <span key={`label-${step.id}`} className="sf-score-journey__score-label">
+                      {step.scoreLabel}
+                    </span>
                   </div>
-                ))}
 
-                <div className="sf-score-journey__score-stack">
-                  <span
-                    key={`score-${step.id}`}
-                    className="sf-score-journey__score"
-                    style={{ '--step-accent': step.accent }}
-                  >
-                    {step.score}
-                  </span>
-                  <span key={`label-${step.id}`} className="sf-score-journey__score-label">
-                    {step.scoreLabel}
-                  </span>
+                  <div className="sf-score-journey__ring" aria-hidden="true" />
                 </div>
-
-                <div className="sf-score-journey__ring" aria-hidden="true" />
               </div>
             </div>
 

@@ -1,4 +1,4 @@
-import { gsap } from './gsapConfig'
+import { gsap, ScrollTrigger } from './gsapConfig'
 
 /**
  * Hero entrance sequence:
@@ -91,10 +91,13 @@ export const animateHero = (scope) => {
  * Act 1 — the copy leaves the stage: title lines split horizontally in
  *         opposite directions, badge/copy/CTA/stats lift away, the grid
  *         zooms past the camera.
- * Act 2 — the score ring becomes the star: it glides to center stage and
- *         grows while the chips scatter radially and the aurora flares.
- * Act 3 — fly-through: the ring zooms through the viewer with a blur,
- *         everything dims, handing off cleanly to the next section.
+ * Act 2 — the phone becomes the star: chips scatter radially, the aurora
+ *         flares, and the phone glides to the exact spot where the
+ *         ScoreJourney stage sits.
+ * Act 3 — handoff: while the hero unsticks and scrolls away, the phone is
+ *         counter-scrolled so it stays glued to the screen, then
+ *         crossfades into the ScoreJourney phone in the same position —
+ *         reading as one continuous device across both sections.
  */
 export const animateHeroScroll = (scope) => {
   if (!scope) return () => {}
@@ -105,6 +108,8 @@ export const animateHeroScroll = (scope) => {
   const cta = scope.querySelector('[data-hero-cta]')
   const stats = scope.querySelector('.sf-hero__stats')
   const visual = scope.querySelector('[data-hero-visual]')
+  const phone = scope.querySelector('[data-hero-phone]')
+  const heroSticky = scope.querySelector('.sf-hero__sticky')
   const chips = scope.querySelectorAll('[data-hero-chip]')
   const aurora = scope.querySelector('.sf-hero__aurora')
   const auroraBlobs = scope.querySelectorAll('.sf-hero__aurora-blob')
@@ -112,8 +117,50 @@ export const animateHeroScroll = (scope) => {
   const marquee = scope.querySelector('.sf-hero__marquee')
   const scrollHint = scope.querySelector('.sf-hero__scroll')
 
-  // On mobile the ring is stacked above the copy, so keep it centered
-  const isDesktop = window.matchMedia('(min-width: 1025px)').matches
+  // Landing target: the ScoreJourney center stage (same phone frame)
+  const journeySection = document.querySelector('.sf-score-journey')
+  const journeyStage = document.querySelector('.sf-score-journey__stage')
+  const journeySticky = document.querySelector('.sf-score-journey__sticky')
+
+  const canFly = Boolean(
+    phone && heroSticky && journeySection && journeyStage && journeySticky,
+  )
+
+  /**
+   * FLIP-style delta between the hero phone and the journey stage.
+   * Both are measured relative to their own sticky containers, which each
+   * fill the viewport while stuck — so the delta is scroll-independent.
+   * Cached and recomputed on ScrollTrigger refresh (with the phone's
+   * transform temporarily reset so measurements stay untransformed).
+   */
+  let flight = { x: 0, y: 0, scale: 1 }
+
+  const measureFlight = () => {
+    if (!canFly) return
+
+    const saved = {
+      x: gsap.getProperty(phone, 'x'),
+      y: gsap.getProperty(phone, 'y'),
+      scale: gsap.getProperty(phone, 'scale'),
+    }
+    gsap.set(phone, { x: 0, y: 0, scale: 1 })
+
+    const p = phone.getBoundingClientRect()
+    const hs = heroSticky.getBoundingClientRect()
+    const s = journeyStage.getBoundingClientRect()
+    const js = journeySticky.getBoundingClientRect()
+
+    flight = {
+      x: s.left - js.left + s.width / 2 - (p.left - hs.left + p.width / 2),
+      y: s.top - js.top + s.height / 2 - (p.top - hs.top + p.height / 2),
+      scale: s.width / p.width,
+    }
+
+    gsap.set(phone, saved)
+  }
+
+  measureFlight()
+  if (canFly) ScrollTrigger.addEventListener('refreshInit', measureFlight)
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -162,21 +209,22 @@ export const animateHeroScroll = (scope) => {
     tl.to(marquee, { xPercent: -22, autoAlpha: 0, duration: 0.5 }, 0.05)
   }
 
-  /* ── Act 2: the ring takes center stage (0.15 → 0.6) ── */
+  /* ── Act 2: the phone glides onto the journey stage spot (0.25 → 0.8) ── */
 
-  if (visual) {
+  if (canFly) {
     tl.to(
-      visual,
+      phone,
       {
-        // Glide toward the center of the stage (desktop two-column only)
-        xPercent: isDesktop ? -26 : 0,
-        y: 0,
-        scale: 1.3,
-        duration: 0.4,
+        x: () => flight.x,
+        y: () => flight.y,
+        scale: () => flight.scale,
+        duration: 0.55,
         ease: 'power1.inOut',
       },
-      0.15,
+      0.25,
     )
+  } else if (visual) {
+    tl.to(visual, { scale: 1.15, duration: 0.4, ease: 'power1.inOut' }, 0.25)
   }
 
   if (chips.length) {
@@ -204,30 +252,50 @@ export const animateHeroScroll = (scope) => {
     tl.to(aurora, { scale: 1.15, duration: 0.35, ease: 'power1.inOut' }, 0.2)
   }
 
-  /* ── Act 3: fly-through exit (0.6 → 1) ──────────── */
-
-  if (visual) {
-    tl.to(
-      visual,
-      {
-        scale: 3.2,
-        autoAlpha: 0,
-        filter: 'blur(14px)',
-        duration: 0.4,
-        ease: 'power2.in',
-      },
-      0.6,
-    )
-  }
+  /* ── Act 3: aurora dims for the handoff (0.6 → 1) ── */
 
   if (aurora) {
-    // ...then dims out for the handoff to the next section
     tl.to(aurora, { autoAlpha: 0.1, scale: 1.4, duration: 0.35, ease: 'power1.out' }, 0.62)
   }
 
+  /* ── Handoff: hero unsticks, phone stays glued to screen ──
+     While the hero scrolls away (journey top: viewport bottom → top),
+     counter-translate the phone by exactly the scrolled distance so it
+     appears fixed. The journey stage (hidden during the ride) then takes
+     over in the identical position — one continuous device. */
+
+  let handoff = null
+
+  if (canFly) {
+    handoff = gsap.timeline({
+      scrollTrigger: {
+        trigger: journeySection,
+        start: 'top bottom',
+        end: 'top top',
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+      defaults: { ease: 'none' },
+    })
+
+    handoff.set(journeyStage, { autoAlpha: 0 }, 0.001)
+    handoff.fromTo(
+      phone,
+      { y: () => flight.y },
+      { y: () => flight.y + window.innerHeight, duration: 1, immediateRender: false },
+      0,
+    )
+    handoff.set(phone, { autoAlpha: 0 }, 0.999)
+    handoff.set(journeyStage, { autoAlpha: 1 }, 0.999)
+  }
+
   const trigger = tl.scrollTrigger
+  const handoffTrigger = handoff?.scrollTrigger
 
   return () => {
+    if (canFly) ScrollTrigger.removeEventListener('refreshInit', measureFlight)
+    handoffTrigger?.kill()
+    handoff?.kill()
     trigger?.kill()
     tl.kill()
   }

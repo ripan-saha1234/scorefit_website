@@ -122,50 +122,77 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right: animated score ring */}
+        {/* Right: phone mockup with live score — glides into ScoreJourney */}
         <div className="sf-hero__visual" data-hero-visual>
-          <div className="sf-hero__ring-wrap">
-            <svg className="sf-hero__ring" viewBox="0 0 260 260" aria-hidden="true">
-              <defs>
-                <linearGradient
-                  id="sf-hero-ring-grad"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#a8f04d" />
-                  <stop offset="100%" stopColor="#73c709" />
-                </linearGradient>
-              </defs>
-              <circle
-                className="sf-hero__ring-track"
-                cx="130"
-                cy="130"
-                r="112"
-                pathLength="100"
-              />
-              <circle
-                className="sf-hero__ring-progress"
-                data-hero-ring
-                cx="130"
-                cy="130"
-                r="112"
-                pathLength="100"
-              />
-            </svg>
+          <div className="sf-hero__phone" data-hero-phone>
+            <span className="sf-hero__phone-glow" aria-hidden="true" />
+            <div className="sf-hero__phone-frame">
+              <span className="sf-hero__phone-notch" aria-hidden="true" />
+              <div className="sf-hero__phone-screen">
+                <div className="sf-hero__phone-topbar">
+                  <span className="sf-hero__phone-app">Score.fit</span>
+                  <span className="sf-hero__phone-live">
+                    <span className="sf-hero__phone-live-dot" />
+                    Live
+                  </span>
+                </div>
 
-            <div className="sf-hero__ring-orbit" aria-hidden="true">
-              <span className="sf-hero__ring-orbit-dot" />
-            </div>
+                <div className="sf-hero__phone-score-wrap">
+                  <svg
+                    className="sf-hero__ring"
+                    viewBox="0 0 260 260"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="sf-hero-ring-grad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stopColor="#a8f04d" />
+                        <stop offset="100%" stopColor="#73c709" />
+                      </linearGradient>
+                    </defs>
+                    <circle
+                      className="sf-hero__ring-track"
+                      cx="130"
+                      cy="130"
+                      r="112"
+                      pathLength="100"
+                    />
+                    <circle
+                      className="sf-hero__ring-progress"
+                      data-hero-ring
+                      cx="130"
+                      cy="130"
+                      r="112"
+                      pathLength="100"
+                    />
+                  </svg>
 
-            <div className="sf-hero__ring-center">
-              <span className="sf-hero__ring-score">
-                <span data-count-to="8.7" data-count-decimals="1">
-                  0.0
-                </span>
-              </span>
-              <span className="sf-hero__ring-label">Your Score</span>
+                  <div className="sf-hero__ring-center">
+                    <span className="sf-hero__ring-score">
+                      <span data-count-to="8.7" data-count-decimals="1">
+                        0.0
+                      </span>
+                    </span>
+                    <span className="sf-hero__ring-label">Your Score</span>
+                  </div>
+                </div>
+
+                <div className="sf-hero__phone-bars" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <p className="sf-hero__phone-caption">Weekly Performance</p>
+              </div>
             </div>
           </div>
 

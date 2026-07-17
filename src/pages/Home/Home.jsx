@@ -36,7 +36,7 @@ const Home = () => {
       <Pricing />
       <Trainers />
       <Testimonials />
-      <FAQ />
+      {/* <FAQ /> */}
       <CTA />
     </div>
   )

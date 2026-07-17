@@ -148,18 +148,40 @@
   }
 }
 
-/* ── Center stage ──────────────────────────────── */
+/* ── Center stage — phone frame (mirrors the hero phone) ── */
 
 .sf-score-journey__stage {
   position: relative;
-  aspect-ratio: 3 / 4;
-  max-height: min(62vh, 30rem);
+  aspect-ratio: 9 / 19;
+  max-height: min(66vh, 34rem);
   margin-inline: auto;
-  border-radius: var(--radius-xl);
+  border-radius: 2.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0d0f0d;
+  padding: 0.55rem;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(115, 199, 9, 0.12);
+}
+
+.sf-score-journey__notch {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 34%;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: #000;
+}
+
+.sf-score-journey__screen {
+  position: relative;
+  height: 100%;
+  border-radius: 2.1rem;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-  background: #1a211c;
+  background: #101410;
 }
 
 .sf-score-journey__media {
@@ -322,9 +344,7 @@
   }
 
   .sf-score-journey__stage {
-    aspect-ratio: 4 / 5;
-    max-height: min(48vh, 24rem);
-    width: min(100%, 20rem);
+    max-height: min(52vh, 26rem);
   }
 
   .sf-score-journey__cta {
