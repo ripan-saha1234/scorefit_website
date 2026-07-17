@@ -7,6 +7,7 @@ import ScoreJourney from '../../components/sections/ScoreJourney'
 import AppShowcase from '../../components/sections/AppShowcase'
 import FeatureShowcase from '../../components/sections/FeatureShowcase'
 import NutritionShowcase from '../../components/sections/NutritionShowcase'
+import PlanFinder from '../../components/sections/PlanFinder'
 import About from '../../components/sections/About'
 import Services from '../../components/sections/Services'
 import Pricing from '../../components/sections/Pricing'
@@ -29,6 +30,7 @@ const Home = () => {
       <AppShowcase />
       <FeatureShowcase />
       <NutritionShowcase />
+      <PlanFinder />
       <About />
       <Services />
       <Pricing />

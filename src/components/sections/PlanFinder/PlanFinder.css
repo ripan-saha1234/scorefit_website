@@ -1,0 +1,185 @@
+/* ============================================
+   Plan Finder — dark section, copy left,
+   plan-cards collage image right (pyramid.avif)
+   ============================================ */
+
+.sf-plan-finder {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: clamp(4rem, 9vw, 7rem) 0;
+}
+
+.sf-plan-finder__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+/* ---------- Copy ---------- */
+
+.sf-plan-finder__copy {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+
+.sf-plan-finder__heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.sf-plan-finder__heading-top {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sf-plan-finder__heading-bottom {
+  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.sf-plan-finder.is-visible .sf-plan-finder__heading-top,
+.sf-plan-finder.is-visible .sf-plan-finder__heading-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sf-plan-finder__desc {
+  max-width: 26rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+
+.sf-plan-finder.is-visible .sf-plan-finder__desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- CTA ---------- */
+
+.sf-plan-finder__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.4rem;
+  padding: 0.8rem 1.9rem;
+  background: var(--color-accent, #73c709);
+  color: #0b0b0b;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sf-plan-finder.is-visible .sf-plan-finder__btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sf-plan-finder__btn:hover {
+  background: #86e210;
+  box-shadow: 0 14px 34px rgba(115, 199, 9, 0.35);
+}
+
+/* ---------- Media (plans collage) ---------- */
+
+.sf-plan-finder__media {
+  position: relative;
+  opacity: 0;
+  transform: translateY(48px) scale(0.97);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.sf-plan-finder.is-visible .sf-plan-finder__media {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sf-plan-finder__media img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: sf-plan-float 8s ease-in-out infinite;
+}
+
+@keyframes sf-plan-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Soft spotlight behind the collage, like the reference */
+.sf-plan-finder__glow {
+  position: absolute;
+  inset: -6% -10%;
+  background: radial-gradient(
+    ellipse 55% 55% at 55% 50%,
+    rgba(255, 255, 255, 0.09),
+    rgba(115, 199, 9, 0.05) 45%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .sf-plan-finder__inner {
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  .sf-plan-finder__media {
+    order: -1;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .sf-plan-finder__copy {
+    justify-items: center;
+    text-align: center;
+  }
+}
