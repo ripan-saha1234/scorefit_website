@@ -3,44 +3,6 @@
 .sf-feature {
   position: relative;
   padding: var(--space-9) 0;
-  background: var(--color-bg);
-  overflow: hidden;
-}
-
-/* ── Particles ─────────────────────────────────── */
-
-.sf-feature__particles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.sf-feature__particle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 10px var(--color-accent-glow);
-  animation: sf-particle-drift linear infinite;
-  will-change: transform;
-}
-
-@keyframes sf-particle-drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  25% {
-    transform: translate3d(2.2rem, -3.5rem, 0) scale(1.15);
-  }
-  50% {
-    transform: translate3d(-1.6rem, -6.5rem, 0) scale(0.9);
-  }
-  75% {
-    transform: translate3d(1.2rem, -9.5rem, 0) scale(1.1);
-  }
-  100% {
-    transform: translate3d(0, -13rem, 0) scale(1);
-  }
 }
 
 /* ── Rows ──────────────────────────────────────── */
@@ -284,7 +246,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sf-feature__particle,
   .sf-feature__phone--solo,
   .sf-feature__phone--back,
   .sf-feature__phone--front {

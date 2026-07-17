@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import useLenis from '../../hooks/useLenis'
 import ScrollProgress from '../common/ScrollProgress'
+import ParticlesBackground from '../ui/ParticlesBackground'
 import Header from './Header'
 import MobileMenu from './MobileMenu'
 import Footer from './Footer'
@@ -18,6 +19,7 @@ const Layout = () => {
 
   return (
     <div className="sf-layout">
+      <ParticlesBackground />
       <ScrollProgress />
       <Header />
       <MobileMenu />

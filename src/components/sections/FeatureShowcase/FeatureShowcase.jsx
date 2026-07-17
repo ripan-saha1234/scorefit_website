@@ -6,24 +6,6 @@ import Button from '../../common/Button'
 import Container from '../../common/Container'
 import './FeatureShowcase.css'
 
-const PARTICLE_COUNT = 26
-
-/* Deterministic pseudo-random so particles don't jump on re-render */
-const seeded = (i, salt) => {
-  const x = Math.sin(i * 127.1 + salt * 311.7) * 43758.5453
-  return x - Math.floor(x)
-}
-
-const PARTICLES = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
-  id: i,
-  left: `${(seeded(i, 1) * 100).toFixed(2)}%`,
-  top: `${(seeded(i, 2) * 100).toFixed(2)}%`,
-  size: `${(2 + seeded(i, 3) * 5).toFixed(1)}px`,
-  duration: `${(9 + seeded(i, 4) * 14).toFixed(1)}s`,
-  delay: `${(-seeded(i, 5) * 18).toFixed(1)}s`,
-  opacity: (0.15 + seeded(i, 6) * 0.4).toFixed(2),
-}))
-
 const PhonePlaceholder = ({ placeholder, small = false }) => (
   <div className={`sf-feature__phone-body${small ? ' is-small' : ''}`}>
     <span className="sf-feature__phone-notch" />
@@ -106,25 +88,6 @@ const FeatureRow = ({ item }) => {
 
 const FeatureShowcase = () => (
   <section className="sf-feature" aria-label="App features">
-    {/* Floating particles */}
-    <div className="sf-feature__particles" aria-hidden="true">
-      {PARTICLES.map((p) => (
-        <span
-          key={p.id}
-          className="sf-feature__particle"
-          style={{
-            left: p.left,
-            top: p.top,
-            width: p.size,
-            height: p.size,
-            opacity: p.opacity,
-            animationDuration: p.duration,
-            animationDelay: p.delay,
-          }}
-        />
-      ))}
-    </div>
-
     <Container className="sf-feature__inner">
       {FEATURE_SHOWCASE_ITEMS.map((item) => (
         <FeatureRow key={item.id} item={item} />

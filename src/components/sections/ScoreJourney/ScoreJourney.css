@@ -5,7 +5,6 @@
   z-index: 2;
   /* Tall scroll track: one viewport per step */
   height: calc(var(--sj-steps, 5) * 100vh);
-  background: var(--color-bg);
 }
 
 .sf-score-journey__sticky {
@@ -15,9 +14,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(115, 199, 9, 0.1), transparent 70%),
-    var(--color-bg);
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(115, 199, 9, 0.1), transparent 70%);
 }
 
 .sf-score-journey__inner {

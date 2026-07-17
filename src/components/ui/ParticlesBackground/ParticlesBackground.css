@@ -1,0 +1,42 @@
+/* ── Global floating particles — fixed behind all content ── */
+
+.sf-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sf-particles__dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+  animation: sf-particles-drift linear infinite;
+  will-change: transform;
+}
+
+@keyframes sf-particles-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(2.2rem, -3.5rem, 0) scale(1.15);
+  }
+  50% {
+    transform: translate3d(-1.6rem, -6.5rem, 0) scale(0.9);
+  }
+  75% {
+    transform: translate3d(1.2rem, -9.5rem, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, -13rem, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-particles__dot {
+    animation: none;
+  }
+}

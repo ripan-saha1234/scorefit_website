@@ -3,7 +3,6 @@
 .sf-app-showcase {
   position: relative;
   padding: var(--space-9) 0;
-  background: var(--color-bg);
   overflow: hidden;
 }
 
