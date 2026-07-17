@@ -1,3 +1,11 @@
-import { animateHero } from '../../../animations/heroAnimations'
+import { animateHero, animateHeroScroll } from '../../../animations/heroAnimations'
 
-export const runHeroAnimations = (scope) => animateHero(scope)
+export const runHeroAnimations = (scope) => {
+  const cleanupEntrance = animateHero(scope)
+  const cleanupScroll = animateHeroScroll(scope)
+
+  return () => {
+    cleanupEntrance()
+    cleanupScroll()
+  }
+}

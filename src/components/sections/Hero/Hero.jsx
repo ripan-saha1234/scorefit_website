@@ -45,6 +45,8 @@ const Hero = () => {
 
   return (
     <section className="sf-hero" ref={scopeRef}>
+      {/* Sticky stage: stays on screen while scroll drives the exit sequence */}
+      <div className="sf-hero__sticky">
       {/* Ambient aurora glows */}
       <div className="sf-hero__aurora" aria-hidden="true">
         <span className="sf-hero__aurora-blob sf-hero__aurora-blob--one" />
@@ -187,6 +189,7 @@ const Hero = () => {
       <div className="sf-hero__scroll" aria-hidden="true">
         <span className="sf-hero__scroll-label">Scroll</span>
         <span className="sf-hero__scroll-line" />
+      </div>
       </div>
     </section>
   )

@@ -6,13 +6,20 @@
 
 .sf-hero {
   position: relative;
-  min-height: 100vh;
-  display: grid;
-  align-items: center;
-  overflow: hidden;
+  /* Tall scroll track: extra 100vh drives the scrubbed exit sequence */
+  height: 200vh;
   background: var(--color-bg);
   --mx: 0;
   --my: 0;
+}
+
+.sf-hero__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
 }
 
 /* ── Aurora glow blobs ───────────────────────────── */
@@ -311,8 +318,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(calc(var(--mx) * -14px), calc(var(--my) * -14px));
-  transition: transform 0.2s ease-out;
+  /* Mouse parallax via `translate` so GSAP scroll effects (transform) compose */
+  translate: calc(var(--mx) * -14px) calc(var(--my) * -14px);
+  transition: translate 0.2s ease-out;
+  will-change: transform;
 }
 
 .sf-hero__ring-wrap {
