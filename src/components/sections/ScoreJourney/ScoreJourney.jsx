@@ -48,7 +48,7 @@ const ScoreJourney = () => {
       <div className="sf-score-journey__sticky">
         <div className="sf-score-journey__inner">
           {/* Progress rail */}
-          <div className="sf-score-journey__progress" aria-hidden="true">
+          {/* <div className="sf-score-journey__progress" aria-hidden="true">
             <div className="sf-score-journey__progress-track">
               <div
                 className="sf-score-journey__progress-fill"
@@ -63,7 +63,7 @@ const ScoreJourney = () => {
                 />
               ))}
             </ol>
-          </div>
+          </div> */}
 
           <div className="sf-score-journey__grid">
             {/* LEFT */}
@@ -74,40 +74,87 @@ const ScoreJourney = () => {
               </h2>
             </div>
 
-            {/* CENTER — phone frame, continues the hero phone */}
+            {/* CENTER — the same phone carried over from the hero,
+                only the score updates per step */}
             <div className="sf-score-journey__col sf-score-journey__col--center">
               <div className="sf-score-journey__stage">
                 <span className="sf-score-journey__notch" aria-hidden="true" />
                 <div className="sf-score-journey__screen">
-                  {SCORE_JOURNEY_STEPS.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className={`sf-score-journey__media${index === activeStep ? ' is-active' : ''}`}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.imageAlt}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        decoding="async"
-                      />
-                      <div className="sf-score-journey__media-veil" />
-                    </div>
-                  ))}
-
-                  <div className="sf-score-journey__score-stack">
-                    <span
-                      key={`score-${step.id}`}
-                      className="sf-score-journey__score"
-                      style={{ '--step-accent': step.accent }}
-                    >
-                      {step.score}
-                    </span>
-                    <span key={`label-${step.id}`} className="sf-score-journey__score-label">
-                      {step.scoreLabel}
+                  <div className="sf-score-journey__topbar">
+                    <span className="sf-score-journey__app">Score.fit</span>
+                    <span className="sf-score-journey__live">
+                      <span className="sf-score-journey__live-dot" />
+                      Live
                     </span>
                   </div>
 
-                  <div className="sf-score-journey__ring" aria-hidden="true" />
+                  <div className="sf-score-journey__score-wrap">
+                    <svg
+                      className="sf-score-journey__ring-svg"
+                      viewBox="0 0 260 260"
+                      aria-hidden="true"
+                    >
+                      <defs>
+                        <linearGradient
+                          id="sf-journey-ring-grad"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" stopColor="#a8f04d" />
+                          <stop offset="100%" stopColor="#73c709" />
+                        </linearGradient>
+                      </defs>
+                      <circle
+                        className="sf-score-journey__ring-track"
+                        cx="130"
+                        cy="130"
+                        r="112"
+                        pathLength="100"
+                      />
+                      <circle
+                        className="sf-score-journey__ring-progress"
+                        cx="130"
+                        cy="130"
+                        r="112"
+                        pathLength="100"
+                        style={{
+                          strokeDashoffset:
+                            100 - parseFloat(step.score) * 10,
+                        }}
+                      />
+                    </svg>
+
+                    <div className="sf-score-journey__ring-center">
+                      <span
+                        key={`score-${step.id}`}
+                        className="sf-score-journey__score"
+                        style={{ '--step-accent': step.accent }}
+                      >
+                        {step.score}
+                      </span>
+                      <span
+                        key={`label-${step.id}`}
+                        className="sf-score-journey__score-label"
+                      >
+                        {step.scoreLabel}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="sf-score-journey__bars" aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <p className="sf-score-journey__caption">
+                    Weekly Performance
+                  </p>
                 </div>
               </div>
             </div>
@@ -135,9 +182,9 @@ const ScoreJourney = () => {
             </div>
           </div>
 
-          <p className="sf-score-journey__hint" aria-hidden="true">
+          {/* <p className="sf-score-journey__hint" aria-hidden="true">
             Scroll to climb your score
-          </p>
+          </p> */}
         </div>
       </div>
     </section>

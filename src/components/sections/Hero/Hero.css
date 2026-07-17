@@ -334,7 +334,8 @@
    so the scroll handoff between sections reads as one device */
 .sf-hero__phone {
   position: relative;
-  width: min(280px, 60vw);
+  /* Shared token with .sf-score-journey__stage — always identical */
+  width: var(--phone-frame-width);
   will-change: transform;
 }
 
@@ -663,7 +664,7 @@
   }
 
   .sf-hero__phone {
-    width: min(220px, 52vw);
+    width: var(--phone-frame-width);
   }
 
   .sf-hero__chip--one {

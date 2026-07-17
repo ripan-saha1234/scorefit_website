@@ -25,10 +25,20 @@
 
   --container-max: 72rem;
   --header-height: 3.5rem;
+
+  /* Shared phone mockup size — used by the hero phone AND the
+     ScoreJourney stage so the scroll handoff is pixel-identical */
+  --phone-frame-width: min(280px, 60vw, calc(62vh * 9 / 19));
   --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 320ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --phone-frame-width: min(220px, 52vw, calc(52vh * 9 / 19));
+  }
 }
 
 /* ── Dark theme (default) — pure black background ── */
