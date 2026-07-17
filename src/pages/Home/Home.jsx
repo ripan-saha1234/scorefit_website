@@ -4,6 +4,8 @@ import { getPageSeo } from '../../config/seoConfig'
 import { ROUTES } from '../../routes/RouteConstants'
 import Hero from '../../components/sections/Hero'
 import ScoreJourney from '../../components/sections/ScoreJourney'
+import AppShowcase from '../../components/sections/AppShowcase'
+import FeatureShowcase from '../../components/sections/FeatureShowcase'
 import About from '../../components/sections/About'
 import Services from '../../components/sections/Services'
 import Pricing from '../../components/sections/Pricing'
@@ -23,6 +25,8 @@ const Home = () => {
     <div className="sf-page-home">
       <Hero />
       <ScoreJourney />
+      <AppShowcase />
+      <FeatureShowcase />
       <About />
       <Services />
       <Pricing />

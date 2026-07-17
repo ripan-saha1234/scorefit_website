@@ -1,0 +1,300 @@
+/* ── Feature Showcase — alternating rows + particles ── */
+
+.sf-feature {
+  position: relative;
+  padding: var(--space-9) 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* ── Particles ─────────────────────────────────── */
+
+.sf-feature__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sf-feature__particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+  animation: sf-particle-drift linear infinite;
+  will-change: transform;
+}
+
+@keyframes sf-particle-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(2.2rem, -3.5rem, 0) scale(1.15);
+  }
+  50% {
+    transform: translate3d(-1.6rem, -6.5rem, 0) scale(0.9);
+  }
+  75% {
+    transform: translate3d(1.2rem, -9.5rem, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, -13rem, 0) scale(1);
+  }
+}
+
+/* ── Rows ──────────────────────────────────────── */
+
+.sf-feature__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(5rem, 12vh, 9rem);
+}
+
+.sf-feature__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+/* Media-right rows flip the columns */
+.sf-feature__row--media-right .sf-feature__media {
+  order: 2;
+}
+
+.sf-feature__row--media-right .sf-feature__copy {
+  order: 1;
+}
+
+/* ── Copy ──────────────────────────────────────── */
+
+.sf-feature__copy {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  opacity: 0;
+  transform: translateY(2.25rem);
+  transition:
+    opacity 0.7s ease 0.12s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.sf-feature__row.is-visible .sf-feature__copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sf-feature__heading {
+  margin: 0;
+  display: grid;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  color: #f4f8f4;
+  line-height: 1.05;
+}
+
+.sf-feature__heading-top {
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sf-feature__heading-bottom {
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.sf-feature__desc {
+  margin: 0;
+  /* max-width: 32ch; */
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.sf-feature__btn {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  border-radius: var(--radius-full) !important;
+  padding-inline: 2rem !important;
+}
+
+/* ── Media / phones ────────────────────────────── */
+
+.sf-feature__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(3rem) scale(0.97);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sf-feature__row.is-visible .sf-feature__media {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sf-feature__media img {
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+}
+
+/* Single floating phone */
+.sf-feature__phone--solo {
+  width: clamp(13rem, 24vw, 17rem);
+  animation: sf-phone-float 6s ease-in-out infinite;
+}
+
+/* Two overlapping phones */
+.sf-feature__phones {
+  position: relative;
+  width: clamp(16rem, 30vw, 24rem);
+  aspect-ratio: 5 / 6;
+}
+
+.sf-feature__phone--back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 62%;
+  animation: sf-phone-float 7s ease-in-out infinite;
+}
+
+.sf-feature__phone--front {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 56%;
+  z-index: 1;
+  animation: sf-phone-float 6s ease-in-out 0.8s infinite reverse;
+}
+
+@keyframes sf-phone-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -0.8rem;
+  }
+}
+
+/* Placeholder phone body (until real screenshots arrive) */
+.sf-feature__phone-body {
+  position: relative;
+  aspect-ratio: 9 / 19;
+  border-radius: 2.2rem;
+  border: 3px solid #2a2f2b;
+  background: linear-gradient(200deg, #181d19 0%, #0c100d 55%, #070a08 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.sf-feature__phone-notch {
+  position: absolute;
+  top: 0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 1rem;
+  border-radius: var(--radius-full);
+  background: #000;
+}
+
+.sf-feature__phone-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  padding: 1.2rem 1rem 1.3rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(115, 199, 9, 0.12), transparent 55%);
+}
+
+.sf-feature__phone-subtitle {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 244, 0.65);
+}
+
+.sf-feature__phone-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #f4f8f4;
+}
+
+.sf-feature__phone-action {
+  margin-top: 0.5rem;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: #0a0f0c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sf-feature__phone-body.is-small .sf-feature__phone-title {
+  font-size: 1.1rem;
+}
+
+/* ── Responsive ────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .sf-feature__row,
+  .sf-feature__row--media-right {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .sf-feature__row--media-right .sf-feature__media {
+    order: 1;
+  }
+
+  .sf-feature__row--media-right .sf-feature__copy {
+    order: 2;
+  }
+
+  .sf-feature__copy {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .sf-feature__desc {
+    max-width: 40ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-feature__particle,
+  .sf-feature__phone--solo,
+  .sf-feature__phone--back,
+  .sf-feature__phone--front {
+    animation: none;
+  }
+
+  .sf-feature__copy,
+  .sf-feature__media {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

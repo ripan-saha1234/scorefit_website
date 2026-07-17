@@ -17,7 +17,7 @@ export const SCROLL_OFFSET = 80
 export const API_TIMEOUT_MS = 15000
 
 export const LOCAL_STORAGE_KEYS = {
-  THEME: 'scorefit-theme',
+  THEME: 'scorefit-theme-v2',
   AUTH: 'scorefit-auth',
   PREFERENCES: 'scorefit-preferences',
 }

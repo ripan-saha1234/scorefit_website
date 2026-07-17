@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.7) contrast(1.1) brightness(0.9);
+  /* filter: saturate(0.7) contrast(1.1) brightness(0.9); */
   transform: scale(1.05); /* hide slight borders on some videos */
 }
 
@@ -32,13 +32,13 @@
   inset: 0;
   z-index: 1;
   /* Base gradient */
-  background:
+  /* background:
     linear-gradient(180deg,
       rgba(10, 15, 12, 0.4) 0%,
       rgba(10, 15, 12, 0.5) 35%,
       rgba(10, 15, 12, 0.88) 72%,
       rgba(10, 15, 12, 0.98) 100%
-    );
+    ); */
   pointer-events: none;
 }
 
@@ -49,7 +49,7 @@
   inset: 0;
   /* background: radial-gradient(
     circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(200, 245, 66, 0.15),
+    rgba(115, 199, 9, 0.15),
     transparent 60%
   ); */
   /* opacity: 0.25; */
@@ -86,7 +86,7 @@
 .sf-hero__grid-lines span {
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, transparent 0%, rgba(200, 245, 66, 0.08) 30%, rgba(200, 245, 66, 0.04) 70%, transparent 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(115, 199, 9, 0.08) 30%, rgba(115, 199, 9, 0.04) 70%, transparent 100%);
 }
 
 /* ── Content ─────────────────────────────────────── */
@@ -150,7 +150,7 @@
   display: inline-block;
   padding-right: 0.2em; /* prevent gradient clipping */
   text-shadow: none; /* gradient text can't have shadow directly */
-  filter: drop-shadow(0 4px 16px rgba(200, 245, 66, 0.2));
+  filter: drop-shadow(0 4px 16px rgba(115, 199, 9, 0.2));
 }
 
 .sf-hero h1 .text-gradient {
@@ -178,7 +178,7 @@
 }
 
 .sf-hero__btn-glow {
-  box-shadow: 0 0 24px rgba(200, 245, 66, 0.4) !important;
+  box-shadow: 0 0 24px rgba(115, 199, 9, 0.4) !important;
 }
 
 .sf-hero__cta-divider {
@@ -221,7 +221,7 @@
   flex-wrap: wrap;
   gap: var(--space-6);
   padding-top: var(--space-5);
-  border-top: 1px solid rgba(200, 245, 66, 0.15);
+  border-top: 1px solid rgba(115, 199, 9, 0.15);
 }
 
 .sf-hero__stat {

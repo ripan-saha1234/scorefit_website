@@ -16,7 +16,7 @@
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(200, 245, 66, 0.1), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(115, 199, 9, 0.1), transparent 70%),
     var(--color-bg);
 }
 
@@ -194,7 +194,7 @@
   inset: 0;
   background:
     linear-gradient(180deg, rgba(10, 15, 12, 0.2) 0%, rgba(10, 15, 12, 0.4) 45%, rgba(10, 15, 12, 0.9) 100%),
-    radial-gradient(circle at 50% 70%, rgba(200, 245, 66, 0.2), transparent 55%);
+    radial-gradient(circle at 50% 70%, rgba(115, 199, 9, 0.2), transparent 55%);
 }
 
 .sf-score-journey__score-stack {
@@ -246,7 +246,7 @@
   inset: 10%;
   z-index: 1;
   border-radius: 50%;
-  border: 1px solid rgba(200, 245, 66, 0.25);
+  border: 1px solid rgba(115, 199, 9, 0.25);
   pointer-events: none;
   animation: sj-pulse 4.5s ease-in-out infinite;
 }
@@ -291,7 +291,7 @@
 
 .sf-score-journey__hint {
   margin: 1.25rem 0 0;
-  text-align: center;
+  /* text-align: center; */
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.12em;

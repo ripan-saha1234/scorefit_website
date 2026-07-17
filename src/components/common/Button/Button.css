@@ -53,11 +53,12 @@
 /* ── Primary — animated gradient ───────────────── */
 
 .sf-button--primary {
-  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end), var(--color-gradient-start));
+  background: transparent;
   background-size: 200% 200%;
-  color: var(--color-accent-ink);
-  animation: gradient-shift 4s ease infinite;
-  box-shadow: 0 4px 16px var(--color-accent-glow);
+  color: #73c709;
+  animation: gradient-shift 2s ease infinite;
+  /* box-shadow: 0 4px 16px var(--color-accent-glow); */
+  border: 1px solid #73c709;
 }
 
 .sf-button--primary:hover {

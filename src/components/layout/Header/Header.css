@@ -169,7 +169,7 @@
 .sf-header.is-scrolled .sf-header__theme:hover,
 .sf-header.is-scrolled .sf-header__menu:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(200, 245, 66, 0.45);
+  border-color: rgba(115, 199, 9, 0.45);
 }
 
 .sf-header__menu {

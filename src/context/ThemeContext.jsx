@@ -7,7 +7,7 @@ import useLocalStorage from '../hooks/useLocalStorage'
 const ThemeContext = createContext(null)
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useLocalStorage(LOCAL_STORAGE_KEYS.THEME, THEME.light)
+  const [theme, setTheme] = useLocalStorage(LOCAL_STORAGE_KEYS.THEME, THEME.dark)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

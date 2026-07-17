@@ -13,7 +13,7 @@
   width: 80%;
   max-width: 1000px;
   height: 60%;
-  background: radial-gradient(ellipse at center, rgba(200, 245, 66, 0.15), transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(115, 199, 9, 0.15), transparent 70%);
   filter: blur(60px);
   pointer-events: none;
   animation: glow-pulse 4s ease-in-out infinite;

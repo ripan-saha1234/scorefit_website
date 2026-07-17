@@ -9,7 +9,7 @@ export const SCORE_JOURNEY_STEPS = [
     image:
       'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Athlete preparing for a strength training session',
-    accent: '#c8f542',
+    accent: '#73c709',
   },
   {
     id: 'build',
@@ -45,7 +45,7 @@ export const SCORE_JOURNEY_STEPS = [
     image:
       'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Athlete celebrating strength training progress',
-    accent: '#c8f542',
+    accent: '#73c709',
   },
   {
     id: 'download',
@@ -57,7 +57,7 @@ export const SCORE_JOURNEY_STEPS = [
     image:
       'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Person checking fitness progress on a phone',
-    accent: '#c8f542',
+    accent: '#73c709',
     isCta: true,
     ctaPrimary: 'Try for Free',
     ctaSecondary: 'Download the App',
