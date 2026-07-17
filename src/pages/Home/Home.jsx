@@ -6,6 +6,7 @@ import Hero from '../../components/sections/Hero'
 import ScoreJourney from '../../components/sections/ScoreJourney'
 import AppShowcase from '../../components/sections/AppShowcase'
 import FeatureShowcase from '../../components/sections/FeatureShowcase'
+import NutritionShowcase from '../../components/sections/NutritionShowcase'
 import About from '../../components/sections/About'
 import Services from '../../components/sections/Services'
 import Pricing from '../../components/sections/Pricing'
@@ -27,6 +28,7 @@ const Home = () => {
       <ScoreJourney />
       <AppShowcase />
       <FeatureShowcase />
+      <NutritionShowcase />
       <About />
       <Services />
       <Pricing />
