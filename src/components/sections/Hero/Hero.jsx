@@ -8,24 +8,30 @@ import { runHeroAnimations } from './HeroAnimations'
 import './Hero.css'
 
 const HERO_STATS = [
-  { value: '2K+', label: 'Active Members' },
-  { value: '50+', label: 'Expert Coaches' },
-  { value: '98%', label: 'Satisfaction' },
+  { value: 2, suffix: 'K+', label: 'Active Members' },
+  { value: 50, suffix: '+', label: 'Expert Coaches' },
+  { value: 98, suffix: '%', label: 'Satisfaction' },
+]
+
+const HERO_CHIPS = [
+  { id: 'strength', title: 'Strength', meta: '+12% this week', modifier: 'one' },
+  { id: 'calories', title: '1,700 kcal', meta: 'Calories tracked', modifier: 'two' },
+  { id: 'recovery', title: 'Recovery 92%', meta: 'Ready to train', modifier: 'three' },
 ]
 
 const Hero = () => {
   const scopeRef = useRef(null)
-  const overlayRef = useRef(null)
 
-  // Interactive mouse glow effect
+  // Mouse parallax: normalized -0.5..0.5 coords drive subtle layer shifts
   useEffect(() => {
+    const node = scopeRef.current
+    if (!node) return undefined
+
     const handleMouseMove = (e) => {
-      if (!overlayRef.current) return
-      const { clientX, clientY } = e
-      const x = (clientX / window.innerWidth) * 100
-      const y = (clientY / window.innerHeight) * 100
-      overlayRef.current.style.setProperty('--mouse-x', `${x}%`)
-      overlayRef.current.style.setProperty('--mouse-y', `${y}%`)
+      const x = e.clientX / window.innerWidth - 0.5
+      const y = e.clientY / window.innerHeight - 0.5
+      node.style.setProperty('--mx', x.toFixed(3))
+      node.style.setProperty('--my', y.toFixed(3))
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -39,73 +45,148 @@ const Hero = () => {
 
   return (
     <section className="sf-hero" ref={scopeRef}>
-      {/* Cinematic Video Background */}
-      <div className="sf-hero__media" aria-hidden="true">
-        <video 
-          className="sf-hero__video" 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-        >
-          <source src="/home_page_video.mp4" type="video/mp4" />
-        </video>
+      {/* Ambient aurora glows */}
+      <div className="sf-hero__aurora" aria-hidden="true">
+        <span className="sf-hero__aurora-blob sf-hero__aurora-blob--one" />
+        <span className="sf-hero__aurora-blob sf-hero__aurora-blob--two" />
+        <span className="sf-hero__aurora-blob sf-hero__aurora-blob--three" />
       </div>
 
-      {/* Interactive Gradient Overlays */}
-      <div className="sf-hero__overlay" aria-hidden="true" ref={overlayRef} />
-      <div className="sf-hero__grain" aria-hidden="true" />
+      {/* Faint blueprint grid */}
+      <div className="sf-hero__grid" aria-hidden="true" />
 
-      {/* Decorative grid lines */}
-      <div className="sf-hero__grid-lines" aria-hidden="true">
-        <span /><span /><span /><span />
+      {/* Giant outlined marquee text */}
+      <div className="sf-hero__marquee" aria-hidden="true">
+        <div className="sf-hero__marquee-track">
+          <span>Train&nbsp;·&nbsp;Track&nbsp;·&nbsp;Transform&nbsp;·&nbsp;Score.fit&nbsp;·&nbsp;</span>
+          <span>Train&nbsp;·&nbsp;Track&nbsp;·&nbsp;Transform&nbsp;·&nbsp;Score.fit&nbsp;·&nbsp;</span>
+        </div>
       </div>
 
-      {/* Content */}
       <Container className="sf-hero__content">
-        <div className="sf-hero__content-box">
-          <div className="sf-hero__badge-wrap">
-            <span className="sf-hero__floating-badge">
-              <span className="sf-hero__pulse-dot"></span>
-              Join 2,000+ Active Members
+        {/* Left: copy */}
+        <div className="sf-hero__copy-col">
+          <span className="sf-hero__badge" data-hero-badge>
+            <span className="sf-hero__pulse-dot" />
+            Join 2,000+ Active Members
+          </span>
+
+          <h1 className="sf-hero__title">
+            <span className="sf-hero__line">
+              <span className="sf-hero__line-inner" data-hero-line>
+                Train with
+              </span>
             </span>
-          </div>
-          
-          <h1 data-hero-title>
-            Train with <br/>
-            <span className="text-gradient sf-hero__title-accent">Purpose.</span>
+            <span className="sf-hero__line">
+              <span
+                className="sf-hero__line-inner sf-hero__line-inner--accent"
+                data-hero-line
+              >
+                Purpose.
+              </span>
+            </span>
           </h1>
-          
+
           <p className="sf-hero__copy" data-hero-copy>
-            {SITE_CONFIG.description} Stop guessing, start scoring your progress.
+            {SITE_CONFIG.description} Stop guessing, start scoring your
+            progress.
           </p>
-          
+
           <div className="sf-hero__cta" data-hero-cta>
-            <Button as={Link} to={ROUTES.JOIN} size="lg" className="sf-hero__btn-glow">{SITE_CONFIG.cta.primary}</Button>
-            <div className="sf-hero__cta-divider">or</div>
-            <Link to={ROUTES.MEMBERSHIP} className="sf-hero__link-secondary">Explore Plans &rarr;</Link>
+            <Button
+              as={Link}
+              to={ROUTES.JOIN}
+              size="lg"
+              className="sf-hero__btn-glow"
+            >
+              {SITE_CONFIG.cta.primary}
+            </Button>
+            <Link to={ROUTES.MEMBERSHIP} className="sf-hero__link-secondary">
+              Explore Plans
+              <span className="sf-hero__link-arrow">&rarr;</span>
+            </Link>
+          </div>
+
+          <div className="sf-hero__stats">
+            {HERO_STATS.map((stat) => (
+              <div key={stat.label} className="sf-hero__stat" data-hero-stat>
+                <span className="sf-hero__stat-value">
+                  <span data-count-to={stat.value}>0</span>
+                  {stat.suffix}
+                </span>
+                <span className="sf-hero__stat-label">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Accent line decoration */}
-        <div className="sf-hero__decor" data-hero-decor aria-hidden="true" />
+        {/* Right: animated score ring */}
+        <div className="sf-hero__visual" data-hero-visual>
+          <div className="sf-hero__ring-wrap">
+            <svg className="sf-hero__ring" viewBox="0 0 260 260" aria-hidden="true">
+              <defs>
+                <linearGradient
+                  id="sf-hero-ring-grad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#a8f04d" />
+                  <stop offset="100%" stopColor="#73c709" />
+                </linearGradient>
+              </defs>
+              <circle
+                className="sf-hero__ring-track"
+                cx="130"
+                cy="130"
+                r="112"
+                pathLength="100"
+              />
+              <circle
+                className="sf-hero__ring-progress"
+                data-hero-ring
+                cx="130"
+                cy="130"
+                r="112"
+                pathLength="100"
+              />
+            </svg>
 
-        {/* Stats bar */}
-        <div className="sf-hero__stats">
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} className="sf-hero__stat" data-hero-stat>
-              <span className="sf-hero__stat-value">{stat.value}</span>
-              <span className="sf-hero__stat-label">{stat.label}</span>
+            <div className="sf-hero__ring-orbit" aria-hidden="true">
+              <span className="sf-hero__ring-orbit-dot" />
+            </div>
+
+            <div className="sf-hero__ring-center">
+              <span className="sf-hero__ring-score">
+                <span data-count-to="8.7" data-count-decimals="1">
+                  0.0
+                </span>
+              </span>
+              <span className="sf-hero__ring-label">Your Score</span>
+            </div>
+          </div>
+
+          {HERO_CHIPS.map((chip) => (
+            <div
+              key={chip.id}
+              className={`sf-hero__chip sf-hero__chip--${chip.modifier}`}
+              data-hero-chip
+            >
+              <span className="sf-hero__chip-dot" />
+              <span className="sf-hero__chip-text">
+                <strong>{chip.title}</strong>
+                <small>{chip.meta}</small>
+              </span>
             </div>
           ))}
         </div>
       </Container>
-      
-      {/* Scroll Indicator */}
-      <div className="sf-hero__scroll-indicator" aria-hidden="true">
-        <div className="sf-hero__scroll-mouse">
-          <div className="sf-hero__scroll-wheel" />
-        </div>
+
+      {/* Scroll indicator */}
+      <div className="sf-hero__scroll" aria-hidden="true">
+        <span className="sf-hero__scroll-label">Scroll</span>
+        <span className="sf-hero__scroll-line" />
       </div>
     </section>
   )
