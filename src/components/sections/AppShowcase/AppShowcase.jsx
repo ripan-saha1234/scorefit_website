@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import Container from '../../common/Container'
 import './AppShowcase.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PHONE_IMAGE = '/appshow1.avif'
 
@@ -58,36 +60,48 @@ const AppShowcase = () => {
     return () => observer.disconnect()
   }, [])
 
+ 
+  useEffect(() => {
+    AOS.init({
+      // duration: 1000,
+      // once: true,
+      // offset: 100,
+      easing: "ease-in-out",
+    });
+  }, []);
   return (
     <section
       ref={sectionRef}
       className="sf-app-showcase"
       aria-label="Score.fit app features"
     >
-      <Container className="sf-app-showcase__inner">
-        <h2 className="sf-app-showcase__heading">
+      <Container className="sf-app-showcase__inner" >
+        <h2 className="sf-app-showcase__heading" >
           Know exactly what workout to do, every day
         </h2>
 
         <div className="sf-app-showcase__layout">
-          <div className="sf-app-showcase__side sf-app-showcase__side--left">
-            {LEFT_POINTS.map((point) => (
-              <Point key={point.id} title={point.title} text={point.text} />
+          <div className="sf-app-showcase__side sf-app-showcase__side--left" data-aos="fade-right" data-aos-duration="700" >
+            {LEFT_POINTS.map((point, index) => (
+              <Point key={point.id} title={point.title} text={point.text} data-aos={`fade-right-${index}`} data-aos-duration="700"  />
             ))}
           </div>
 
-          <div className="sf-app-showcase__media">
+          <div className="sf-app-showcase__media" data-aos="zoom-in" data-aos-duration="700" >
             <img
               src={PHONE_IMAGE}
               alt="Score.fit app on a phone showing daily workouts"
               loading="lazy"
               decoding="async"
+              data-aos="zoom-in"
+              data-aos-duration="700"
+              
             />
           </div>
 
-          <div className="sf-app-showcase__side sf-app-showcase__side--right">
-            {RIGHT_POINTS.map((point) => (
-              <Point key={point.id} title={point.title} text={point.text} />
+            <div className="sf-app-showcase__side sf-app-showcase__side--right" data-aos="fade-left" data-aos-duration="700" >
+            {RIGHT_POINTS.map((point, index) => (
+              <Point key={point.id} title={point.title} text={point.text} data-aos={`fade-left-${index}`} data-aos-duration="800"  />
             ))}
           </div>
         </div>

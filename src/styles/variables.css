@@ -1,8 +1,8 @@
 /* ── Shared design tokens (theme-independent) ── */
 
 :root {
-  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
-  --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+  --font-display: 'Google Sans Flex', sans-serif;
+  --font-body: 'Google Sans Flex', sans-serif;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

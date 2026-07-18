@@ -1,75 +1,125 @@
+/* CTA — simple download block with padded phone */
+
 .sf-cta {
   position: relative;
-  padding: var(--space-8) 0 var(--space-9);
-  overflow: hidden;
-}
-
-/* Background animated glow */
-.sf-cta__bg-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 1000px;
-  height: 60%;
-  background: radial-gradient(ellipse at center, rgba(115, 199, 9, 0.15), transparent 70%);
-  filter: blur(60px);
-  pointer-events: none;
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
-/* Decorative particles */
-.sf-cta__particles {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--color-accent-subtle) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.5;
-  pointer-events: none;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  z-index: 2;
+  background: #000000;
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
 .sf-cta__inner {
-  position: relative;
-  z-index: 1;
-}
-
-.sf-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  display: grid;
-  gap: 1.25rem;
-  justify-items: center;
-  padding: clamp(3rem, 8vw, 5rem);
-  border-radius: var(--radius-xl);
-  background: var(--color-glass-bg);
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
+  gap: 1.75rem;
 }
 
-/* Shimmer overlay for card */
-.sf-cta__content::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%);
-  pointer-events: none;
+.sf-cta__phone {
+  width: min(260px, 52vw);
+  /* Extra space above the phone */
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.sf-cta h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  max-width: 16ch;
+.sf-cta__phone img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.sf-cta p {
-  font-size: 1.1rem;
-  max-width: 32rem;
+.sf-cta__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 28rem;
 }
 
-.sf-cta__actions {
-  margin-top: 1rem;
+.sf-cta__heading {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.sf-cta__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sf-cta__stores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.sf-cta__store {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 10.5rem;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  text-decoration: none;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.sf-cta__store svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  flex-shrink: 0;
+}
+
+.sf-cta__store-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05rem;
+  line-height: 1.15;
+}
+
+.sf-cta__store-copy small {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sf-cta__store-copy strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sf-cta__store:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #0b0b0b;
+}
+
+.sf-cta__store:hover .sf-cta__store-copy small {
+  color: rgba(11, 11, 11, 0.7);
+}
+
+@media (max-width: 480px) {
+  .sf-cta__stores {
+    width: 100%;
+  }
+
+  .sf-cta__store {
+    flex: 1 1 calc(50% - 0.45rem);
+    justify-content: center;
+    min-width: 0;
+  }
 }

@@ -28,14 +28,14 @@ const Home = () => {
       <Hero />
       <ScoreJourney />
       <AppShowcase />
-      <FeatureShowcase />
-      <NutritionShowcase />
-      <PlanFinder />
+      {/* <FeatureShowcase /> */}
+      {/* <NutritionShowcase /> */}
+      {/* <PlanFinder />
       <About />
       <Services />
       <Pricing />
       <Trainers />
-      <Testimonials />
+      <Testimonials /> */}
       {/* <FAQ /> */}
       <CTA />
     </div>

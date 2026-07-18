@@ -16,7 +16,19 @@ const Header = () => {
   return (
     <header className={`sf-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="sf-header__inner">
-        <Link to={ROUTES.HOME} className="sf-header__brand">{SITE_CONFIG.name}</Link>
+        <Link to={ROUTES.HOME} className="sf-header__brand" aria-label={SITE_CONFIG.name}>
+          <img
+            src="/logo.png"
+            alt=""
+            className="sf-header__logo"
+            width={48}
+            height={48}
+          />
+          <span className="sf-header__wordmark">
+            <span className="sf-header__wordmark-name">ScoreFit</span>
+            <span className="sf-header__wordmark-tag">Business</span>
+          </span>
+        </Link>
         <Navbar />
         <div className="sf-header__actions">
           <button type="button" className="sf-header__theme" onClick={toggleTheme} aria-label="Toggle theme">◐</button>
