@@ -47,6 +47,12 @@ const Hero = () => {
     <section className="sf-hero" ref={scopeRef}>
       {/* Sticky stage: stays on screen while scroll drives the exit sequence */}
       <div className="sf-hero__sticky">
+      {/* Background image */}
+      <div className="sf-hero__bg" aria-hidden="true">
+        <img src="/home_bg.jpg" alt="" />
+        <span className="sf-hero__bg-veil" />
+      </div>
+
       {/* Ambient aurora glows */}
       <div className="sf-hero__aurora" aria-hidden="true">
         <span className="sf-hero__aurora-blob sf-hero__aurora-blob--one" />
