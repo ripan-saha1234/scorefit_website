@@ -2,7 +2,7 @@ import { ROUTES } from '../routes/RouteConstants'
 
 export const PRIMARY_NAV = [
   { label: 'Home', path: ROUTES.HOME },
-  { label: 'Membership', path: ROUTES.MEMBERSHIP },
+  // { label: 'Membership', path: ROUTES.MEMBERSHIP },
   { label: 'Contact', path: ROUTES.CONTACT },
 ]
 

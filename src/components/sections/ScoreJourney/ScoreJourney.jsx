@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { SCORE_JOURNEY_STEPS } from '../../../data/scoreJourneyData'
-import { ROUTES } from '../../../routes/RouteConstants'
+import { SITE_CONFIG } from '../../../config/siteConfig'
+import { scrollToDownload } from '../../../utils/scroll'
 import { refreshScrollTrigger } from '../../../animations/gsapConfig'
 import Button from '../../common/Button'
 import { runScoreJourneyAnimations } from './ScoreJourneyAnimations'
@@ -167,16 +167,13 @@ const ScoreJourney = () => {
 
               {isLast ? (
                 <div className="sf-score-journey__cta">
-                  <Button as={Link} to={ROUTES.JOIN} size="lg" className="sf-score-journey__cta-btn">
-                    Try for Free
-                  </Button>
-                  <a
-                    className="sf-score-journey__cta-link"
-                    href="#download"
-                    onClick={(e) => e.preventDefault()}
+                  <Button
+                    size="lg"
+                    className="sf-score-journey__cta-btn"
+                    onClick={scrollToDownload}
                   >
-                    Download the App →
-                  </a>
+                    {SITE_CONFIG.cta.primary}
+                  </Button>
                 </div>
               ) : null}
             </div>

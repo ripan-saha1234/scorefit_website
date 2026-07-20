@@ -14,6 +14,8 @@ export const ANIMATION_DURATION = {
 
 export const SCROLL_OFFSET = 80
 
+export const DOWNLOAD_SECTION_ID = 'download-app'
+
 export const API_TIMEOUT_MS = 15000
 
 export const LOCAL_STORAGE_KEYS = {

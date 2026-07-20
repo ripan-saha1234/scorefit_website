@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import { SITE_CONFIG } from '../../../config/siteConfig'
-import { ROUTES } from '../../../routes/RouteConstants'
+import { scrollToDownload } from '../../../utils/scroll'
 import Button from '../../common/Button'
 import Container from '../../common/Container'
 import { runHeroAnimations } from './HeroAnimations'
@@ -102,17 +101,12 @@ const Hero = () => {
 
           <div className="sf-hero__cta" data-hero-cta>
             <Button
-              as={Link}
-              to={ROUTES.JOIN}
               size="lg"
               className="sf-hero__btn-glow"
+              onClick={scrollToDownload}
             >
               {SITE_CONFIG.cta.primary}
             </Button>
-            <Link to={ROUTES.MEMBERSHIP} className="sf-hero__link-secondary">
-              Explore Plans
-              <span className="sf-hero__link-arrow">&rarr;</span>
-            </Link>
           </div>
 
           <div className="sf-hero__stats">

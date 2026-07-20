@@ -1,8 +1,7 @@
 import { SITE_CONFIG } from '../../../config/siteConfig'
+import { DOWNLOAD_SECTION_ID } from '../../../utils/constants'
 import Container from '../../common/Container'
 import './CTA.css'
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const APP_IMAGE = '/feature1.png'
 
@@ -19,7 +18,11 @@ const AndroidIcon = () => (
 )
 
 const CTA = () => (
-  <section className="sf-cta" aria-label="Download the Score.fit app">
+  <section
+    id={DOWNLOAD_SECTION_ID}
+    className="sf-cta"
+    aria-label="Download the Score.fit app"
+  >
     <Container className="sf-cta__inner">
       <div className="sf-cta__phone">
         <img

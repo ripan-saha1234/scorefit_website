@@ -1,7 +1,7 @@
 export const SCORE_JOURNEY_STEPS = [
   {
     id: 'baseline',
-    score: '5.5',
+    score: '4.5',
     scoreLabel: 'Baseline Score',
     heading: 'Know your fitness Score',
     description:
@@ -13,7 +13,7 @@ export const SCORE_JOURNEY_STEPS = [
   },
   {
     id: 'build',
-    score: '7.2',
+    score: '6.2',
     scoreLabel: 'Building Form',
     heading: 'Train with intention',
     description:
@@ -25,7 +25,7 @@ export const SCORE_JOURNEY_STEPS = [
   },
   {
     id: 'peak',
-    score: '8.8',
+    score: '7.8',
     scoreLabel: 'Peak Momentum',
     heading: 'Feel the momentum',
     description:
@@ -37,7 +37,7 @@ export const SCORE_JOURNEY_STEPS = [
   },
   {
     id: 'elite',
-    score: '9.5',
+    score: '8.5',
     scoreLabel: 'Elite Range',
     heading: 'Own your performance',
     description:
@@ -49,7 +49,7 @@ export const SCORE_JOURNEY_STEPS = [
   },
   {
     id: 'download',
-    score: '10',
+    score: '9.5',
     scoreLabel: 'Ready to Score',
     heading: 'Download our app',
     description:

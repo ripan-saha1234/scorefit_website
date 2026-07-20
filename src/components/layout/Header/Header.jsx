@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { SITE_CONFIG } from '../../../config/siteConfig'
 import { ROUTES } from '../../../routes/RouteConstants'
+import { scrollToDownload } from '../../../utils/scroll'
 import { useScroll } from '../../../context/ScrollContext'
 import { useTheme } from '../../../context/ThemeContext'
 import { useApp } from '../../../context/AppContext'
@@ -26,13 +27,12 @@ const Header = () => {
           />
           <span className="sf-header__wordmark">
             <span className="sf-header__wordmark-name">ScoreFit</span>
-            <span className="sf-header__wordmark-tag">Business</span>
           </span>
         </Link>
         <Navbar />
         <div className="sf-header__actions">
           <button type="button" className="sf-header__theme" onClick={toggleTheme} aria-label="Toggle theme">◐</button>
-          <Button as={Link} to={ROUTES.JOIN} size="sm">{SITE_CONFIG.cta.primary}</Button>
+          <Button size="sm" onClick={scrollToDownload}>{SITE_CONFIG.cta.primary}</Button>
           <button type="button" className="sf-header__menu" onClick={toggleMobileMenu} aria-label="Open menu">☰</button>
         </div>
       </div>

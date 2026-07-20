@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
     facebook: 'https://facebook.com/score.fit',
   },
   cta: {
-    primary: 'Start Free Trial',
+    primary: 'Get Started',
     secondary: 'View Memberships',
   },
 }
