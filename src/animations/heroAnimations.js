@@ -1,4 +1,5 @@
 import { gsap, ScrollTrigger } from './gsapConfig'
+import { isMobileViewport } from '../utils/scroll'
 
 /**
  * Hero entrance sequence:
@@ -100,7 +101,7 @@ export const animateHero = (scope) => {
  *         reading as one continuous device across both sections.
  */
 export const animateHeroScroll = (scope) => {
-  if (!scope) return () => {}
+  if (!scope || isMobileViewport()) return () => {}
 
   const badge = scope.querySelector('[data-hero-badge]')
   const lines = scope.querySelectorAll('[data-hero-line]')

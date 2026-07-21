@@ -13,3 +13,9 @@ export const FOOTER_NAV = [
   { label: 'Privacy Policy', path: ROUTES.PRIVACY },
   { label: 'Terms', path: ROUTES.TERMS },
 ]
+
+export const MOBILE_NAV = [
+  { label: 'Home', path: ROUTES.HOME },
+  { label: 'Contact', path: ROUTES.CONTACT },
+  { label: 'Privacy Policy', path: ROUTES.PRIVACY },
+]

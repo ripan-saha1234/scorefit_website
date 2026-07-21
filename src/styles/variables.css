@@ -28,7 +28,9 @@
 
   /* Shared phone mockup size — used by the hero phone AND the
      ScoreJourney stage so the scroll handoff is pixel-identical */
-  --phone-frame-width: min(280px, 60vw, calc(62vh * 9 / 19));
+  --phone-aspect-ratio: 9 / 18.5;
+  --phone-aspect-ratio-mobile: 9 / 16.75;
+  --phone-frame-width: min(280px, 60vw, calc(62vh * 9 / 18.5));
   --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 320ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,20 +39,20 @@
 
 @media (max-width: 1024px) {
   :root {
-    --phone-frame-width: min(220px, 52vw, calc(52vh * 9 / 19));
+    --phone-frame-width: min(220px, 52vw, calc(52vh * 9 / 18.5));
   }
 }
 
 @media (max-width: 640px) {
   :root {
-    --phone-frame-width: min(200px, 58vw, calc(34dvh * 9 / 19));
+    --phone-frame-width: min(190px, 54vw, calc(28dvh * 9 / 16.75));
     --header-height: 3.25rem;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --phone-frame-width: min(176px, 74vw, calc(36vh * 9 / 19));
+    --phone-frame-width: min(168px, 68vw, calc(30vh * 9 / 16.75));
   }
 }
 

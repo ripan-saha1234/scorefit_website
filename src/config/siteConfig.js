@@ -8,10 +8,12 @@ export const SITE_CONFIG = {
   phone: '+1 (555) 010-FIT',
   address: '120 Performance Ave, Fitness District',
   social: {
-    instagram: 'https://instagram.com/score.fit',
-    twitter: 'https://x.com/scorefit',
-    youtube: 'https://youtube.com/@scorefit',
+    whatsapp: 'https://wa.me/1555010348',
     facebook: 'https://facebook.com/score.fit',
+    instagram: 'https://instagram.com/score.fit',
+    linkedin: 'https://linkedin.com/company/scorefit',
+    x: 'https://x.com/scorefit',
+    youtube: 'https://youtube.com/@scorefit',
   },
   cta: {
     primary: 'Get Started',

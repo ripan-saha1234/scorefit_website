@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { PRIMARY_NAV, FOOTER_NAV } from '../../../data/navigationData'
+import { MOBILE_NAV } from '../../../data/navigationData'
 import { useApp } from '../../../context/AppContext'
 import './MobileMenu.css'
 
@@ -22,7 +22,7 @@ const MobileMenu = () => {
 
         <nav aria-label="Mobile">
           <ul>
-            {[...PRIMARY_NAV, ...FOOTER_NAV].map((item) => (
+            {MOBILE_NAV.map((item) => (
               <li key={item.path}>
                 <NavLink to={item.path} onClick={closeMobileMenu}>{item.label}</NavLink>
               </li>

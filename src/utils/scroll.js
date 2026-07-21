@@ -36,3 +36,8 @@ export const prefersReducedMotion = () => {
   if (!isBrowser()) return false
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
+
+export const isMobileViewport = () => {
+  if (!isBrowser()) return false
+  return window.matchMedia('(max-width: 640px)').matches
+}
