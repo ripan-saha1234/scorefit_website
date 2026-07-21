@@ -28,8 +28,11 @@ export const animateScoreJourney = (scope, { stepCount, onStepChange, onProgress
       const progress = self.progress
       onProgress?.(progress)
 
-      let nextStep = Math.min(stepCount - 1, Math.floor(progress * stepCount))
-      if (progress >= 0.92) nextStep = stepCount - 1
+      let nextStep = Math.min(
+        stepCount - 1,
+        Math.floor(progress * stepCount + 0.08),
+      )
+      if (progress >= 0.88) nextStep = stepCount - 1
 
       if (nextStep !== currentStep) {
         currentStep = nextStep

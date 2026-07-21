@@ -1,9 +1,10 @@
-/* CTA — simple download block with padded phone */
+/* CTA — light download block */
 
 .sf-cta {
   position: relative;
   z-index: 2;
-  background: #000000;
+  background: #ffffff;
+  color: #000000;
   padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
@@ -17,7 +18,6 @@
 
 .sf-cta__phone {
   width: min(260px, 52vw);
-  /* Extra space above the phone */
   padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
@@ -40,14 +40,14 @@
   font-size: clamp(1.75rem, 3.5vw, 2.4rem);
   font-weight: 800;
   line-height: 1.15;
-  color: #ffffff;
+  color: #000000;
 }
 
 .sf-cta__text {
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.68);
 }
 
 .sf-cta__stores {
@@ -64,10 +64,10 @@
   gap: 0.7rem;
   min-width: 10.5rem;
   padding: 0.7rem 1.15rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-radius: 0.75rem;
-  background: transparent;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   text-decoration: none;
   transition:
     border-color 0.25s ease,
@@ -94,22 +94,24 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .sf-cta__store-copy strong {
   font-size: 1rem;
   font-weight: 700;
+  color: #000000;
 }
 
 .sf-cta__store:hover {
   border-color: var(--color-accent);
   background: var(--color-accent);
-  color: #0b0b0b;
+  color: #000000;
 }
 
-.sf-cta__store:hover .sf-cta__store-copy small {
-  color: rgba(11, 11, 11, 0.7);
+.sf-cta__store:hover .sf-cta__store-copy small,
+.sf-cta__store:hover .sf-cta__store-copy strong {
+  color: #000000;
 }
 
 @media (max-width: 480px) {

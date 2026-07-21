@@ -3,8 +3,9 @@
 .sf-score-journey {
   position: relative;
   z-index: 2;
-  /* Tall scroll track: one viewport per step */
-  height: calc(var(--sj-steps, 5) * 100vh);
+  /* Scroll track — less than one viewport per step for quicker transitions */
+  --sj-step-scroll: 50vh;
+  height: calc(var(--sj-steps, 5) * var(--sj-step-scroll));
 }
 
 .sf-score-journey__sticky {
@@ -464,6 +465,10 @@
 }
 
 @media (max-width: 640px) {
+  .sf-score-journey {
+    --sj-step-scroll: 42vh;
+  }
+
   .sf-score-journey__sticky {
     padding-inline: 0.75rem;
   }
