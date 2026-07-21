@@ -41,6 +41,19 @@
   }
 }
 
+@media (max-width: 640px) {
+  :root {
+    --phone-frame-width: min(200px, 58vw, calc(34dvh * 9 / 19));
+    --header-height: 3.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --phone-frame-width: min(176px, 74vw, calc(36vh * 9 / 19));
+  }
+}
+
 /* ── Dark theme (default) — pure black background ── */
 
 :root,

@@ -1,1 +1,4 @@
-.sf-page-home { display: grid; }
+.sf-page-home {
+  display: grid;
+  overflow-x: clip;
+}

@@ -11,6 +11,15 @@ const MobileMenu = () => {
     <div className="sf-mobile-menu">
       <button type="button" className="sf-mobile-menu__backdrop" aria-label="Close menu" onClick={closeMobileMenu} />
       <aside className="sf-mobile-menu__panel">
+        <button
+          type="button"
+          className="sf-mobile-menu__close"
+          onClick={closeMobileMenu}
+          aria-label="Close menu"
+        >
+          <span className="sf-mobile-menu__close-icon" aria-hidden="true" />
+        </button>
+
         <nav aria-label="Mobile">
           <ul>
             {[...PRIMARY_NAV, ...FOOTER_NAV].map((item) => (

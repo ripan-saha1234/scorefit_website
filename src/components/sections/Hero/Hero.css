@@ -679,13 +679,15 @@
 @media (max-width: 1024px) {
   .sf-hero__content {
     grid-template-columns: 1fr;
-    gap: clamp(3rem, 8vw, 4rem);
+    gap: clamp(2rem, 6vw, 3rem);
     text-align: left;
+    padding-top: clamp(5rem, 10vh, 6.5rem);
+    padding-bottom: clamp(2.5rem, 8vh, 4rem);
   }
 
   .sf-hero__visual {
     order: -1;
-    margin-top: clamp(1rem, 4vh, 2rem);
+    margin-top: 0;
   }
 
   .sf-hero__phone {
@@ -705,12 +707,47 @@
   }
 }
 
+@media (max-width: 768px) {
+  .sf-hero {
+    height: 180vh;
+  }
+
+  .sf-hero__title {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+  }
+
+  .sf-hero__copy {
+    font-size: 1rem;
+    max-width: none;
+  }
+
+  .sf-hero__cta {
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .sf-hero__cta .sf-button {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .sf-hero__stats {
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+  }
+
+  .sf-hero__stat-value {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+}
+
 @media (max-width: 640px) {
   .sf-hero__marquee {
     bottom: 2vh;
   }
 
-  .sf-hero__chip--two {
+  .sf-hero__chip {
     display: none;
   }
 
@@ -720,5 +757,43 @@
 
   .sf-hero__scroll {
     display: none;
+  }
+
+  .sf-hero__badge {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .sf-hero__content {
+    gap: 1.5rem;
+    padding-top: clamp(4.5rem, 9vh, 5.5rem);
+  }
+
+  .sf-hero__phone-frame {
+    border-radius: 2rem;
+  }
+
+  .sf-hero__phone-screen {
+    border-radius: 1.65rem;
+    padding: 2.4rem 0.9rem 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sf-hero {
+    height: 165vh;
+  }
+
+  .sf-hero__title {
+    font-size: clamp(2.15rem, 10.5vw, 2.75rem);
+  }
+
+  .sf-hero__stat {
+    flex: 1 1 calc(50% - var(--space-4));
+    min-width: 6.5rem;
+  }
+
+  .sf-hero__stat-label {
+    font-size: 0.65rem;
   }
 }

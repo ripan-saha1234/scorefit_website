@@ -3,3 +3,9 @@
   max-width: 90rem;
   margin-inline: auto;
 }
+
+@media (max-width: 640px) {
+  .sf-container {
+    width: min(100% - 1.5rem, 90rem);
+  }
+}

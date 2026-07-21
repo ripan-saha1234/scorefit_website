@@ -389,51 +389,121 @@
 /* ── Responsive ────────────────────────────────── */
 
 @media (max-width: 1024px) {
+  /* Pin phone to viewport center; heading above, copy below */
+  .sf-score-journey__sticky {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    justify-items: center;
+    height: 100dvh;
+    padding-inline: 1rem;
+  }
+
+  .sf-score-journey__inner {
+    display: contents;
+    padding: 0;
+  }
+
   .sf-score-journey__grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    padding-left: 2rem;
-    min-height: auto;
+    display: contents;
+  }
+
+  .sf-score-journey__col--left {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+    max-width: 28rem;
+    padding-bottom: 0.85rem;
+    justify-items: center;
     text-align: center;
   }
 
-  .sf-score-journey__col--left,
+  .sf-score-journey__col--center {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+  }
+
   .sf-score-journey__col--right {
+    grid-row: 3;
+    grid-column: 1;
+    align-self: start;
+    justify-self: center;
+    width: 100%;
+    max-width: 28rem;
+    padding-top: 0.85rem;
     justify-items: center;
+    text-align: center;
+  }
+
+  .sf-score-journey__eyebrow {
+    margin-inline: auto;
   }
 
   .sf-score-journey__heading {
     max-width: 14ch;
+    margin-inline: auto;
   }
 
   .sf-score-journey__desc {
     max-width: 36ch;
+    margin-inline: auto;
   }
 
   .sf-score-journey__stage {
     width: var(--phone-frame-width);
+    margin-inline: auto;
   }
 
   .sf-score-journey__cta {
     align-items: center;
   }
-
-  .sf-score-journey__progress {
-    left: 0.25rem;
-  }
 }
 
 @media (max-width: 640px) {
-  .sf-score-journey__grid {
-    padding-left: 1.5rem;
+  .sf-score-journey__sticky {
+    padding-inline: 0.75rem;
   }
 
-  .sf-score-journey__progress-track {
-    height: 8rem;
+  .sf-score-journey__col--left {
+    padding-bottom: 0.65rem;
+  }
+
+  .sf-score-journey__col--right {
+    padding-top: 0.65rem;
+  }
+
+  .sf-score-journey__eyebrow {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .sf-score-journey__heading {
+    font-size: clamp(1.85rem, 8vw, 2.35rem);
+    max-width: none;
+  }
+
+  .sf-score-journey__desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 32ch;
   }
 
   .sf-score-journey__score {
     font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .sf-score-journey__heading {
+    font-size: clamp(1.65rem, 7.5vw, 2rem);
+  }
+
+  .sf-score-journey__desc {
+    font-size: 0.85rem;
   }
 }
 
