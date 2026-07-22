@@ -1,0 +1,8 @@
+export { default as BusinessHero } from './BusinessHero'
+export { default as BusinessZoomGallery } from './BusinessZoomGallery'
+export { default as BusinessPortalShowcase } from './BusinessPortalShowcase'
+export { default as BusinessPricing } from './BusinessPricing'
+export { default as BusinessComparison } from './BusinessComparison'
+export { default as BusinessBenefits } from './BusinessBenefits'
+export { default as BusinessFaq } from './BusinessFaq'
+export { default as BusinessCta } from './BusinessCta'

@@ -20,6 +20,11 @@ export const SEO_CONFIG = {
       title: `Membership | ${SITE_CONFIG.name}`,
       description: 'Compare Score.fit membership plans and find the right training package for your goals.',
     },
+    [ROUTES.BUSINESS]: {
+      title: `Business Pricing | ${SITE_CONFIG.name}`,
+      description:
+        'Corporate wellness plans for teams. Compare Score.fit Business pricing, features, and enterprise support.',
+    },
     [ROUTES.TRAINERS]: {
       title: `Trainers | ${SITE_CONFIG.name}`,
       description: 'Meet certified Score.fit trainers specializing in strength, mobility, and performance.',

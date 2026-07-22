@@ -7,6 +7,7 @@ import { ROUTES } from './RouteConstants'
 const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
 const Membership = lazy(() => import('../pages/Membership'))
+const Business = lazy(() => import('../pages/Business'))
 const Trainers = lazy(() => import('../pages/Trainers'))
 const Classes = lazy(() => import('../pages/Classes'))
 const BMI = lazy(() => import('../pages/BMI'))
@@ -27,6 +28,7 @@ const AppRoutes = () => (
           <Route path={ROUTES.HOME} element={<Home />} />
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.MEMBERSHIP} element={<Membership />} />
+          <Route path={ROUTES.BUSINESS} element={<Business />} />
           <Route path={ROUTES.TRAINERS} element={<Trainers />} />
           <Route path={ROUTES.CLASSES} element={<Classes />} />
           <Route path={ROUTES.BMI} element={<BMI />} />

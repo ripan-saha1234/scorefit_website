@@ -1,0 +1,8 @@
+.sf-biz-faq {
+  padding: var(--space-8) 0;
+  background: var(--color-bg-alt);
+}
+
+.sf-biz-faq__inner {
+  max-width: 46rem;
+}

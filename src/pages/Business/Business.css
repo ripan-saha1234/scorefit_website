@@ -1,0 +1,11 @@
+.sf-page-business {
+  background: var(--color-bg);
+}
+
+.sf-page-business .sf-section-title {
+  margin-bottom: 0.5rem;
+}
+
+.sf-page-business .sf-section-title h2 {
+  letter-spacing: -0.02em;
+}

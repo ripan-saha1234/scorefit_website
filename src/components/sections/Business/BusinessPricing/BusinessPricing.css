@@ -1,0 +1,205 @@
+.sf-biz-pricing {
+  padding: clamp(4.5rem, 9vw, 7rem) 0;
+  background:
+    radial-gradient(ellipse 55% 35% at 50% 0%, rgba(115, 199, 9, 0.07), transparent 60%),
+    var(--color-bg);
+}
+
+.sf-biz-pricing__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 0 var(--space-7);
+}
+
+.sf-biz-pricing__toggle-track {
+  position: relative;
+  display: flex;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-solid);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem;
+  overflow: hidden;
+}
+
+.sf-biz-pricing__toggle-track button {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-full);
+  padding: 0.55rem 1.35rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+
+.sf-biz-pricing__toggle-track button.is-active {
+  color: var(--color-accent-ink);
+}
+
+.sf-biz-pricing__toggle-indicator {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  height: calc(100% - 0.5rem);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  transition: transform var(--transition-base);
+  pointer-events: none;
+}
+
+.sf-biz-pricing__save {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.sf-biz-pricing__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.sf-biz-pricing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.9rem 1.6rem 1.6rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
+    var(--color-surface-solid);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.sf-biz-pricing__card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-3px);
+}
+
+.sf-biz-pricing__card.is-highlighted {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 1px rgba(115, 199, 9, 0.25),
+    0 24px 60px rgba(115, 199, 9, 0.12);
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(115, 199, 9, 0.12), transparent 70%),
+    var(--color-surface-solid);
+}
+
+.sf-biz-pricing__badge {
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sf-biz-pricing__tagline {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sf-biz-pricing__name {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.sf-biz-pricing__price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.15rem 0 0;
+}
+
+.sf-biz-pricing__amount {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.sf-biz-pricing__suffix {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.sf-biz-pricing__desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  min-height: 4.2em;
+}
+
+.sf-biz-pricing__features {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.35rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--color-border);
+  list-style: none;
+  flex: 1;
+}
+
+.sf-biz-pricing__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.sf-biz-pricing__features svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--color-accent);
+}
+
+.sf-biz-pricing__cta {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 1024px) {
+  .sf-biz-pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+
+  .sf-biz-pricing__desc {
+    min-height: 0;
+  }
+}
