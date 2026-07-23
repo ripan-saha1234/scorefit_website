@@ -33,13 +33,32 @@ const InsightRow = ({ item }) => {
     >
       <div className="sf-biz-portal__media">
         {item.image ? (
-          <img
-            src={item.image}
-            alt={item.imageAlt}
-            className="sf-biz-portal__image"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className="sf-biz-portal__stage">
+            <span className="sf-biz-portal__stage-panel" aria-hidden="true" />
+            <span className="sf-biz-portal__stage-glow" aria-hidden="true" />
+            <div className="sf-biz-portal__window">
+              <div className="sf-biz-portal__window-bar" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <p>{item.eyebrow}</p>
+              </div>
+              <div className="sf-biz-portal__window-body">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  className="sf-biz-portal__image"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <span className="sf-biz-portal__corner sf-biz-portal__corner--tl" aria-hidden="true" />
+            <span className="sf-biz-portal__corner sf-biz-portal__corner--br" aria-hidden="true" />
+            <span className="sf-biz-portal__float-tag" aria-hidden="true">
+              Live preview
+            </span>
+          </div>
         ) : (
           <PortalPlaceholder placeholder={item.placeholder} />
         )}

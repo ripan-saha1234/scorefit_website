@@ -44,8 +44,8 @@
   padding: 0.45rem 1rem;
   border-radius: var(--radius-full);
   border: 1px solid #73c709;
-  /* background: rgba(115, 199, 9, 0.12); */
-  color: #73c709;
+  background: #73c709;
+  color: white;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
