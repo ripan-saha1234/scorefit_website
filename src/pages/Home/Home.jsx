@@ -5,7 +5,7 @@ import { ROUTES } from '../../routes/RouteConstants'
 import Hero from '../../components/sections/Hero'
 import ScoreJourney from '../../components/sections/ScoreJourney'
 import AppShowcase from '../../components/sections/AppShowcase'
-import RainbowOrbit from '../../components/sections/RainbowOrbit'
+import VoiceShowcase from '../../components/sections/VoiceShowcase'
 import FeatureShowcase from '../../components/sections/FeatureShowcase'
 import NutritionShowcase from '../../components/sections/NutritionShowcase'
 import PlanFinder from '../../components/sections/PlanFinder'
@@ -29,7 +29,7 @@ const Home = () => {
       <Hero />
       <ScoreJourney />
       <AppShowcase />
-      <RainbowOrbit />
+      <VoiceShowcase />
       {/* <FeatureShowcase /> */}
       {/* <NutritionShowcase /> */}
       {/* <PlanFinder />

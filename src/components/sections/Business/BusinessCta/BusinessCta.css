@@ -10,12 +10,12 @@
   gap: 1rem;
   padding: clamp(2.75rem, 7vw, 4.25rem) 1.5rem;
   border-radius: 1.75rem;
-  border: 1px solid rgba(115, 199, 9, 0.32);
-  background:
+  border: 1px solid #73c709;
+  /* background:
     radial-gradient(ellipse 70% 80% at 50% 0%, rgba(115, 199, 9, 0.2), transparent 65%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
-    var(--color-surface-solid);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    var(--color-surface-solid); */
+  /* box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); */
 }
 
 .sf-biz-cta__title {
