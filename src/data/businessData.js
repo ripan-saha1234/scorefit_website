@@ -17,19 +17,19 @@ export const BUSINESS_PORTAL_INSIGHTS = {
   eyebrow: 'Portal insights',
   title: 'See exactly what your team gets',
   description:
-    'A clear admin portal and employee experience — scores, engagement, challenges, and reports in one place.',
+    'Explore an intuitive platform that simplifies member management, billing, attendance, staff operations, reports, and business analytics—all from a single dashboard.',
   items: [
     {
       id: 'dashboard',
       layout: 'media-right',
       eyebrow: 'Admin dashboard',
-      title: 'Company wellness at a glance',
+      title: 'Complete Business Overview',
       description:
-        'Track active seats, average Score.fit rating, challenge participation, and weekly engagement from one command center built for HR and wellness leads.',
+        'Monitor revenue, memberships, renewals, attendance, and business performance from one powerful dashboard designed for modern fitness businesses.',
       points: [
-        'Live team score overview',
-        'Seat & invite management',
-        'Weekly engagement pulse',
+        'Real-time revenue tracking',
+        'Member & renewal management',
+        'Interactive analytics dashboard',
       ],
       image: '/dashboard_design.png',
       imageAlt: 'Score.fit business admin dashboard',
@@ -43,14 +43,14 @@ export const BUSINESS_PORTAL_INSIGHTS = {
     {
       id: 'scores',
       layout: 'media-left',
-      eyebrow: 'Score insights',
-      title: 'Personal scores, collective progress',
+      eyebrow: 'MEMBER MANAGEMENT',
+      title: 'Manage Every Member with Ease',
       description:
-        'Every employee gets a living fitness score. Managers see trends without exposing private workout details — privacy-first, outcomes-focused.',
+        'Keep track of active, inactive, and expired memberships in one place. Quickly manage member profiles, monitor membership status, and stay on top of renewals with an organized dashboard.',
       points: [
-        'Individual score journeys',
-        'Department / team trends',
-        'Privacy-safe reporting',
+        'Active & expired member tracking',
+        'Smart membership status management',
+        'Quick member search & filtering',
       ],
       image: '/members_dashboard.png',
       imageAlt: 'Employee fitness score insights view',
@@ -64,14 +64,14 @@ export const BUSINESS_PORTAL_INSIGHTS = {
     {
       id: 'challenges',
       layout: 'media-right',
-      eyebrow: 'Team challenges',
-      title: 'Turn wellness into a shared habit',
+      eyebrow: 'ORDER MANAGEMENT',
+      title: 'Track Every Order with Confidence',
       description:
-        'Launch steps, strength, or recovery challenges. Leaderboards and milestones keep participation high without feeling like another corporate mandate.',
+        'Manage customer orders, invoices, payments, and order status from a single dashboard. Stay organized with real-time updates and complete transaction visibility.',
       points: [
-        'Custom company challenges',
-        'Live leaderboards',
-        'Auto reminders & milestones',
+        'Order & invoice management',
+        'Payment status tracking',
+        'Real-time order monitoring',
       ],
       image: '/orders_dashboard.png',
       imageAlt: 'Team challenges portal screen',
@@ -85,14 +85,14 @@ export const BUSINESS_PORTAL_INSIGHTS = {
     {
       id: 'reports',
       layout: 'media-left',
-      eyebrow: 'Reports & exports',
-      title: 'Proof of impact for leadership',
+      eyebrow: 'POS & INVENTORY',
+      title: 'Sell Smarter, Stock Better',
       description:
-        'Export engagement and score-improvement reports for leadership reviews. Show ROI on wellness spend with numbers that actually hold up.',
+        'Manage memberships, products, services, and inventory from one powerful POS system. Process sales faster, monitor stock levels, and deliver a seamless checkout experience.',
       points: [
-        'PDF & CSV exports',
-        'Month-over-month trends',
-        'Share-ready summaries',
+        'Unified POS & product management',
+        'Real-time inventory tracking',
+        'Fast billing & checkout experience',
       ],
       image: '/products_dashboard.png',
       imageAlt: 'Business wellness report preview',
@@ -107,10 +107,10 @@ export const BUSINESS_PORTAL_INSIGHTS = {
 }
 
 export const BUSINESS_ZOOM_GALLERY = {
-  eyebrow: 'Inside the portal',
-  title: 'Every screen, designed to drive action',
+  eyebrow: 'INSIDE THE PLATFORM',
+  title: 'Every Screen. Built to Perform',
   description:
-    'From the first invite to quarterly reports — a product experience your team will actually open.',
+    'View active memberships, attendance trends, and customer engagement to improve retention.',
   images: [
     {
       id: 'shot-1',
