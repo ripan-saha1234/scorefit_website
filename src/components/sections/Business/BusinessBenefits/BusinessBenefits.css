@@ -1,6 +1,6 @@
 .sf-biz-benefits {
   padding: clamp(4.5rem, 9vw, 7rem) 0;
-  background: var(--color-bg-alt);
+  /* background: var(--color-bg-alt); */
 }
 
 .sf-biz-benefits__grid {

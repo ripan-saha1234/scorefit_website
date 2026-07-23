@@ -13,23 +13,13 @@
   position: relative;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: rgba(210, 220, 220, 0.86);
   padding: 0.5rem 0;
   transition: color var(--transition-base);
 }
 
 .sf-navbar__link:hover,
 .sf-navbar__link.is-active {
-  color: var(--color-text);
-}
-
-/* Scrolled header: light nav on dark glass */
-.sf-header.is-scrolled .sf-navbar__link {
-  color: rgba(210, 220, 220, 0.86);
-}
-
-.sf-header.is-scrolled .sf-navbar__link:hover,
-.sf-header.is-scrolled .sf-navbar__link.is-active {
   color: #f4f8f4;
 }
 

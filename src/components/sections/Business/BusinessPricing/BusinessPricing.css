@@ -1,8 +1,15 @@
 .sf-biz-pricing {
   padding: clamp(4.5rem, 9vw, 7rem) 0;
-  background:
-    radial-gradient(ellipse 55% 35% at 50% 0%, rgba(115, 199, 9, 0.07), transparent 60%),
-    var(--color-bg);
+  background: #eaede8;
+  color: #1a211c;
+}
+
+.sf-biz-pricing .sf-section-title h2 {
+  color: #111814;
+}
+
+.sf-biz-pricing .sf-section-title__description {
+  color: #5c6b62;
 }
 
 .sf-biz-pricing__toggle {
@@ -17,8 +24,8 @@
   position: relative;
   display: flex;
   border-radius: var(--radius-full);
-  background: var(--color-surface-solid);
-  border: 1px solid var(--color-border);
+  background: #ffffff;
+  border: 1px solid #d8e0da;
   padding: 0.25rem;
   overflow: hidden;
 }
@@ -32,12 +39,12 @@
   padding: 0.55rem 1.35rem;
   font-weight: 700;
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: #5c6b62;
   transition: color var(--transition-base);
 }
 
 .sf-biz-pricing__toggle-track button.is-active {
-  color: var(--color-accent-ink);
+  color: white;
 }
 
 .sf-biz-pricing__toggle-indicator {
@@ -57,8 +64,8 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  background: var(--color-accent-subtle);
+  color: #4f8a08;
+  background: rgba(115, 199, 9, 0.14);
   padding: 0.3rem 0.65rem;
   border-radius: var(--radius-full);
 }
@@ -77,29 +84,21 @@
   gap: 0.85rem;
   padding: 1.9rem 1.6rem 1.6rem;
   border-radius: 1.35rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
-    var(--color-surface-solid);
+  border: 1px solid #d8e0da;
+  background: #ffffff;
   transition:
     border-color var(--transition-base),
-    box-shadow var(--transition-base),
     transform var(--transition-base);
 }
 
 .sf-biz-pricing__card:hover {
-  border-color: var(--color-border-hover);
+  border-color: rgba(115, 199, 9, 0.45);
   transform: translateY(-3px);
 }
 
 .sf-biz-pricing__card.is-highlighted {
   border-color: var(--color-accent);
-  box-shadow:
-    0 0 0 1px rgba(115, 199, 9, 0.25),
-    0 24px 60px rgba(115, 199, 9, 0.12);
-  background:
-    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(115, 199, 9, 0.12), transparent 70%),
-    var(--color-surface-solid);
+  background: #ffffff;
 }
 
 .sf-biz-pricing__badge {
@@ -109,8 +108,8 @@
   transform: translateX(-50%);
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
+  background: #73c709;
+  color: white;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -124,14 +123,14 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #5c6b62;
 }
 
 .sf-biz-pricing__name {
   margin: 0;
   font-size: 1.45rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: #111814;
 }
 
 .sf-biz-pricing__price {
@@ -147,19 +146,19 @@
   font-size: clamp(2.2rem, 4vw, 2.85rem);
   font-weight: 800;
   line-height: 1;
-  color: var(--color-text);
+  color: #111814;
 }
 
 .sf-biz-pricing__suffix {
   font-size: 0.88rem;
-  color: var(--color-text-muted);
+  color: #5c6b62;
 }
 
 .sf-biz-pricing__desc {
   margin: 0;
   font-size: 0.92rem;
   line-height: 1.6;
-  color: var(--color-text-muted);
+  color: #5c6b62;
   min-height: 4.2em;
 }
 
@@ -168,7 +167,7 @@
   gap: 0.65rem;
   margin: 0.35rem 0 0;
   padding: 1rem 0 0;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #e4ebe5;
   list-style: none;
   flex: 1;
 }
@@ -178,18 +177,29 @@
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: #3d4a42;
 }
 
 .sf-biz-pricing__features svg {
   flex-shrink: 0;
   margin-top: 0.15rem;
-  color: var(--color-accent);
+  color: #73c709;
 }
 
 .sf-biz-pricing__cta {
   width: 100%;
   margin-top: 0.75rem;
+}
+
+.sf-biz-pricing__cta.sf-button--secondary {
+  color: #1a211c;
+  border-color: rgba(26, 33, 28, 0.22);
+}
+
+.sf-biz-pricing__cta.sf-button--secondary:hover {
+  border-color: #73c709;
+  color: #4f8a08;
+  box-shadow: none;
 }
 
 @media (max-width: 1024px) {

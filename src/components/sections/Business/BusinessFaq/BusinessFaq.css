@@ -1,8 +1,47 @@
 .sf-biz-faq {
   padding: var(--space-8) 0;
-  background: var(--color-bg-alt);
+  background: #ffffff;
+  color: #1a211c;
 }
 
 .sf-biz-faq__inner {
   max-width: 46rem;
+}
+
+.sf-biz-faq .sf-section-title h2 {
+  color: #111814;
+}
+
+.sf-biz-faq .sf-section-title__description {
+  color: #5c6b62;
+}
+
+.sf-biz-faq .sf-accordion__item {
+  border: 1px solid #d8e0da;
+  background: #f7f9f7;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.sf-biz-faq .sf-accordion__item:hover {
+  border-color: rgba(115, 199, 9, 0.45);
+}
+
+.sf-biz-faq .sf-accordion__item.is-open {
+  border-color: #73c709;
+  box-shadow: none;
+  background: #ffffff;
+}
+
+.sf-biz-faq .sf-accordion__trigger {
+  color: #111814;
+}
+
+.sf-biz-faq .sf-accordion__trigger:hover {
+  color: #4f8a08;
+}
+
+.sf-biz-faq .sf-accordion__panel {
+  color: #5c6b62;
 }

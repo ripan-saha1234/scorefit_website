@@ -22,11 +22,8 @@ const ZoomShot = ({ item, index, isActive, isFocused }) => (
       <div
         className={`sf-biz-zoom__ph sf-biz-zoom__ph--${item.placeholderTone || 'dark'}`}
         aria-hidden="true"
-      >
-        <span>{item.label}</span>
-      </div>
+      />
     )}
-    {item.fit === 'wide' ? null : <figcaption>{item.label}</figcaption>}
   </figure>
 )
 

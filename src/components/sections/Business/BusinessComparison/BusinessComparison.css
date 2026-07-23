@@ -1,6 +1,6 @@
 .sf-biz-compare {
   padding: var(--space-8) 0;
-  background: var(--color-bg-alt);
+  /* background: var(--color-bg-alt); */
 }
 
 .sf-biz-compare__scroll {

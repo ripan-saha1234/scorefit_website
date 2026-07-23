@@ -2,9 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: clamp(6rem, 14vw, 9rem) 0 clamp(4rem, 8vw, 5.5rem);
-  background:
-    radial-gradient(ellipse 70% 55% at 50% -10%, rgba(115, 199, 9, 0.16), transparent 60%),
-    var(--color-bg);
+  background: #eaede8;
+  color: #1a211c;
 }
 
 .sf-biz-hero__glow {
@@ -13,7 +12,7 @@
   height: 22rem;
   background: radial-gradient(
     ellipse 50% 50% at 50% 50%,
-    rgba(115, 199, 9, 0.1),
+    
     transparent 70%
   );
   pointer-events: none;
@@ -22,13 +21,10 @@
 .sf-biz-hero__grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px);
+  
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 65% 55% at 50% 15%, #000 15%, transparent 72%);
+  
   pointer-events: none;
-  opacity: 0.65;
 }
 
 .sf-biz-hero__inner {
@@ -47,10 +43,9 @@
   align-items: center;
   padding: 0.45rem 1rem;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(115, 199, 9, 0.4);
-  background: linear-gradient(180deg, rgba(115, 199, 9, 0.16), rgba(115, 199, 9, 0.06));
-  box-shadow: 0 0 24px rgba(115, 199, 9, 0.12);
-  color: var(--color-accent);
+  border: 1px solid #73c709;
+  /* background: rgba(115, 199, 9, 0.12); */
+  color: #73c709;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -64,19 +59,8 @@
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.03em;
-  color: var(--color-text);
+  color: #111814;
   max-width: 13ch;
-  background: linear-gradient(180deg, #ffffff 20%, #d7e6d0 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-[data-theme='light'] .sf-biz-hero__title {
-  background: linear-gradient(180deg, #132016 10%, #2f4636 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .sf-biz-hero__copy {
@@ -84,7 +68,7 @@
   max-width: 36rem;
   font-size: clamp(1.02rem, 2vw, 1.15rem);
   line-height: 1.75;
-  color: var(--color-text-muted);
+  color: #5c6b62;
 }
 
 .sf-biz-hero__actions {
@@ -95,19 +79,31 @@
   margin-top: 0.85rem;
 }
 
+.sf-biz-hero__actions .sf-button--secondary {
+  color: #1a211c;
+  border-color: rgba(26, 33, 28, 0.22);
+  background: transparent;
+}
+
+.sf-biz-hero__actions .sf-button--secondary:hover {
+  border-color: #73c709;
+  color: #4f8a08;
+  box-shadow: none;
+}
+
 .sf-biz-hero__scroll {
   margin-top: 0.65rem;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #5c6b62;
   text-decoration: none;
   transition: color var(--transition-fast), letter-spacing var(--transition-fast);
 }
 
 .sf-biz-hero__scroll:hover {
-  color: var(--color-accent);
+  color: #4f8a08;
   letter-spacing: 0.18em;
 }
 
