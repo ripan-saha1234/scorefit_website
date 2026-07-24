@@ -9,3 +9,18 @@
 .sf-page-business .sf-section-title h2 {
   letter-spacing: -0.02em;
 }
+
+@media (max-width: 900px) {
+  .sf-page-business {
+    overflow-x: clip;
+  }
+
+  .sf-page-business .sf-section-title h2 {
+    font-size: clamp(1.55rem, 6.5vw, 2.1rem);
+  }
+
+  .sf-page-business .sf-section-title__description {
+    font-size: 0.95rem;
+    padding-inline: 0.25rem;
+  }
+}

@@ -107,7 +107,39 @@
   letter-spacing: 0.18em;
 }
 
+@media (max-width: 768px) {
+  .sf-biz-hero {
+    padding: clamp(5.25rem, 16vw, 6.5rem) 0 clamp(3rem, 8vw, 4rem);
+  }
+
+  .sf-biz-hero__inner {
+    gap: 1rem;
+    max-width: 100%;
+    padding-inline: 0.15rem;
+  }
+
+  .sf-biz-hero__title {
+    max-width: 16ch;
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .sf-biz-hero__copy {
+    max-width: 34rem;
+    font-size: 0.98rem;
+  }
+}
+
 @media (max-width: 480px) {
+  .sf-biz-hero__eyebrow {
+    font-size: 0.64rem;
+    padding: 0.38rem 0.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  .sf-biz-hero__title {
+    max-width: none;
+  }
+
   .sf-biz-hero__actions {
     width: 100%;
     flex-direction: column;

@@ -332,8 +332,40 @@
 }
 
 @media (max-width: 900px) {
+  .sf-biz-portal {
+    padding: clamp(3.25rem, 8vw, 5rem) 0;
+  }
+
+  .sf-biz-portal__list {
+    gap: clamp(2.5rem, 7vw, 3.5rem);
+    margin-top: var(--space-5);
+  }
+
+  .sf-biz-portal__row,
+  .sf-biz-portal__row--media-right .sf-biz-portal__media,
+  .sf-biz-portal__row--media-right .sf-biz-portal__copy {
+    order: initial;
+  }
+
+  .sf-biz-portal__row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sf-biz-portal__media {
+    order: -1;
+    overflow: hidden;
+    perspective: none;
+  }
+
   .sf-biz-portal__stage {
-    padding: 0.9rem 0.5rem 1.25rem;
+    padding: 0.65rem 0.35rem 1.1rem;
+  }
+
+  .sf-biz-portal__stage-panel,
+  .sf-biz-portal__corner,
+  .sf-biz-portal__stage-glow {
+    display: none;
   }
 
   .sf-biz-portal__window,
@@ -345,15 +377,62 @@
   }
 
   .sf-biz-portal__row.is-visible:hover .sf-biz-portal__window {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
   }
 
-  .sf-biz-portal__stage-panel {
-    transform: rotate(-1.5deg);
+  .sf-biz-portal__window-body {
+    padding: 0.65rem;
   }
 
-  .sf-biz-portal__row--media-right .sf-biz-portal__stage-panel {
-    transform: rotate(1.5deg);
+  .sf-biz-portal__float-tag {
+    right: 0.75rem;
+    bottom: 0.15rem;
+    font-size: 0.58rem;
+    padding: 0.28rem 0.55rem;
+  }
+
+  .sf-biz-portal__row--media-right .sf-biz-portal__float-tag {
+    left: 0.75rem;
+    right: auto;
+  }
+
+  .sf-biz-portal__title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+  }
+
+  .sf-biz-portal__desc {
+    font-size: 0.95rem;
+  }
+
+  .sf-biz-portal__points li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sf-biz-portal__window-bar {
+    padding: 0.55rem 0.7rem;
+  }
+
+  .sf-biz-portal__window-bar p {
+    max-width: 12ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sf-biz-portal__stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sf-biz-portal__mock--scores {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: left;
+  }
+
+  .sf-biz-portal__mock--scores ul {
+    width: 100%;
   }
 }
 
@@ -645,37 +724,4 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
-}
-
-@media (max-width: 900px) {
-  .sf-biz-portal__row,
-  .sf-biz-portal__row--media-right .sf-biz-portal__media,
-  .sf-biz-portal__row--media-right .sf-biz-portal__copy {
-    order: initial;
-  }
-
-  .sf-biz-portal__row {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .sf-biz-portal__media {
-    order: -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .sf-biz-portal__stat-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sf-biz-portal__mock--scores {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: left;
-  }
-
-  .sf-biz-portal__mock--scores ul {
-    width: 100%;
-  }
 }

@@ -212,8 +212,8 @@
 }
 
 @media (max-width: 1024px) {
-  .sf-biz-zoom__stage {
-    min-height: clamp(32rem, 85vh, 42rem);
+  .sf-biz-zoom {
+    overflow: hidden;
   }
 
   .sf-biz-zoom__shot--ml,
@@ -232,13 +232,18 @@
   }
 }
 
-@media (max-width: 640px) {
+/* Tablet + mobile: stacked gallery — keeps desktop absolute layout untouched */
+@media (max-width: 900px) {
+  .sf-biz-zoom {
+    padding: clamp(3rem, 8vw, 4.5rem) 0;
+  }
+
   .sf-biz-zoom__stage {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.85rem;
     min-height: 0;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
   }
 
   .sf-biz-zoom__center {
@@ -246,26 +251,43 @@
     inset: auto;
     order: -1;
     grid-column: 1 / -1;
-    padding: 0 0 1.25rem;
+    padding: 0 0.35rem 1.35rem;
     pointer-events: auto;
   }
 
-  .sf-biz-zoom__shot {
+  .sf-biz-zoom__title {
+    max-width: 16ch;
+    font-size: clamp(1.75rem, 7vw, 2.4rem);
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  }
+
+  .sf-biz-zoom__copy {
+    max-width: 34rem;
+    font-size: 0.95rem;
+    text-shadow: none;
+  }
+
+  .sf-biz-zoom__shot,
+  .sf-biz-zoom__shot--tl,
+  .sf-biz-zoom__shot--tr,
+  .sf-biz-zoom__shot--bl,
+  .sf-biz-zoom__shot--br {
     position: relative;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     --shot-w: 100%;
-    --shot-h: 9.5rem;
+    --shot-h: 9.75rem;
     width: 100%;
-    rotate: 0deg !important;
+    rotate: 0deg;
   }
 
   .sf-biz-zoom__shot--wide {
-    --shot-h: 9.5rem;
+    --shot-h: 10rem;
     grid-column: 1 / -1;
-    max-width: 18rem;
+    max-width: 20rem;
+    width: 100%;
     margin-inline: auto;
   }
 
@@ -278,9 +300,24 @@
   .sf-biz-zoom__shot.is-focused {
     filter: saturate(1.05) brightness(1.02);
   }
+}
+
+@media (max-width: 480px) {
+  .sf-biz-zoom__stage {
+    gap: 0.7rem;
+  }
+
+  .sf-biz-zoom__shot,
+  .sf-biz-zoom__shot--wide {
+    --shot-h: 8.75rem;
+  }
+
+  .sf-biz-zoom__eyebrow {
+    font-size: 0.64rem;
+  }
 
   .sf-biz-zoom__title {
-    max-width: 16ch;
+    max-width: none;
   }
 }
 

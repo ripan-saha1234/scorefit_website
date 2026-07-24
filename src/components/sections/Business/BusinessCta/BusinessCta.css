@@ -44,6 +44,24 @@
 }
 
 @media (max-width: 480px) {
+  .sf-biz-cta {
+    padding: clamp(3rem, 8vw, 4.5rem) 0 clamp(3.5rem, 10vw, 5rem);
+  }
+
+  .sf-biz-cta__panel {
+    padding: 2.25rem 1.15rem;
+    border-radius: 1.25rem;
+  }
+
+  .sf-biz-cta__title {
+    max-width: none;
+    font-size: clamp(1.55rem, 7.5vw, 2rem);
+  }
+
+  .sf-biz-cta__copy {
+    font-size: 0.95rem;
+  }
+
   .sf-biz-cta__actions {
     width: 100%;
     flex-direction: column;

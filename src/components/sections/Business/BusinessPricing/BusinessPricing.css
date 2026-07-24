@@ -213,3 +213,39 @@
     min-height: 0;
   }
 }
+
+@media (max-width: 560px) {
+  .sf-biz-pricing {
+    padding: clamp(3rem, 8vw, 4.5rem) 0;
+  }
+
+  .sf-biz-pricing__toggle {
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .sf-biz-pricing__toggle-track button {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .sf-biz-pricing__card {
+    padding: 1.7rem 1.25rem 1.35rem;
+  }
+
+  .sf-biz-pricing__badge {
+    font-size: 0.62rem;
+    padding: 0.28rem 0.6rem;
+    max-width: calc(100% - 1.5rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sf-biz-pricing__name {
+    font-size: 1.3rem;
+  }
+
+  .sf-biz-pricing__amount {
+    font-size: clamp(2rem, 10vw, 2.45rem);
+  }
+}

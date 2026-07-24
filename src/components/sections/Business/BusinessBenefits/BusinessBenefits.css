@@ -64,7 +64,24 @@
 }
 
 @media (max-width: 560px) {
+  .sf-biz-benefits {
+    padding: clamp(3rem, 8vw, 4.5rem) 0;
+  }
+
   .sf-biz-benefits__grid {
     grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .sf-biz-benefits__card {
+    padding: 1.25rem 1.1rem;
+  }
+
+  .sf-biz-benefits__card h3 {
+    font-size: 1.05rem;
+  }
+
+  .sf-biz-benefits__card p {
+    font-size: 0.9rem;
   }
 }
